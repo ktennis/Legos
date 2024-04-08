@@ -26,4 +26,9 @@ body {
 .navbar-logo {
     max-width: 30px;
 }
+.ribeye-regular {
+    font-family: "Ribeye", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
