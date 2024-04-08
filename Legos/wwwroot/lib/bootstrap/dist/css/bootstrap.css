@@ -3865,12 +3865,13 @@ textarea.form-control-lg {
   border-top-right-radius: 0;
 }
 
+
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
 .nav-link {
@@ -4100,6 +4101,7 @@ textarea.form-control-lg {
     border-top: 0;
     border-bottom: 0;
   }
+
   .navbar-expand-sm .offcanvas-body {
     display: flex;
     flex-grow: 0;
