@@ -4,8 +4,8 @@
 @{
 }
 
-@* @model ProductListViewModel *@
-@model IQueryable<Product>
+@model ProductListViewModel
+@* @model IQueryable<Product> *@
 
 <div class="container">
     <div class="row">
@@ -21,7 +21,7 @@
 </div>
     <div class="container">
         <div class="row">
-            @foreach (Product p in Model)
+            @foreach (Product p in Model.Products)
             {
                 <div class="col-md-6">
                     <div class="product-item">
@@ -106,7 +106,5 @@
     }
 </script>
 
-<a asp-controller="Home" asp-action="Products" asp-route-pageNum="1">1</a>
-<a asp-controller="Home" asp-action="Products" asp-route-pageNum="2">2</a>
-<a asp-controller="Home" asp-action="Products" asp-route-pageNum="3">3</a>
+<div page-model="@Model.PaginationInfo" page-action="Products"></div>
 
