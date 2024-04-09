@@ -23,6 +23,11 @@ body {
 .navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-light.bg-white.border-bottom.box-shadow.mb-3 {
     background-color: #CEE2E4 !important;
 }
+.btn-custom {
+    background-color: #CEE2E4;
+    border-color: #CEE2E4;
+    margin-top: 30px;
+}
 .navbar-logo {
     max-width: 30px;
 }
