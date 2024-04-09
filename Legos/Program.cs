@@ -1,4 +1,5 @@
 using Legos.Data;
+using Legos.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
 
+builder.Services.AddDbContext<AurorasBricksContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:LegosConnection"]);
+});
+ //Add services to the container.
 services.AddAuthentication().AddGoogle(googleOptions =>
 {
     googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
@@ -13,6 +19,7 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 });
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
