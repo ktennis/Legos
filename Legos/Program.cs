@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<LegosContext>(options =>
+builder.Services.AddDbContext<AurorasBricksContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:LegosConnection"]);
 });
