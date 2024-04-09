@@ -49,6 +49,21 @@ namespace Legos.Controllers
             return View();
         }
 
+        public IActionResult AdminUsers()
+        {
+            return View();
+        }
+        
+        public IActionResult AdminReviewOrders()
+        {
+            return View();
+        }
+
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()
         //{
