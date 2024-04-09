@@ -1,9 +1,11 @@
 using Legos.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Legos.Controllers
 {
+    //[Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
