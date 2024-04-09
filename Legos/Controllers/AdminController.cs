@@ -6,7 +6,7 @@ namespace Legos.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         //public AdminController(ILogger<AdminController> logger)
         //{
@@ -60,6 +60,14 @@ namespace Legos.Controllers
         }
 
         public IActionResult AddUser()
+        {
+            return View();
+        }
+        public IActionResult AdminProducts()
+        {
+            return View();
+        }
+        public IActionResult AddProduct()
         {
             return View();
         }

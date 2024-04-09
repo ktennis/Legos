@@ -29,6 +29,13 @@ body {
     margin-top: 30px;
 }
 
+.btn-add {
+    background-color: #CEE2E4;
+    border-color: #CEE2E4;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
 .btn-confirm {
     margin-right: 5px !important;
 }
