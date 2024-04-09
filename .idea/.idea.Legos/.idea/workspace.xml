@@ -8,14 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Legos/wwwroot/Screenshot 2024-04-08 123458.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/About.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/About.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.css" afterDir="false" />
-    </list>
+    <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +30,7 @@
     ".NET Launch Settings Profile.Legos: http.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging master",
+    "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712620579726</updated>
-      <workItem from="1712620582224" duration="1061000" />
+      <workItem from="1712620582224" duration="3014000" />
     </task>
     <servers />
   </component>
