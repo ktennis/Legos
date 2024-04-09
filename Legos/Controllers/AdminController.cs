@@ -4,19 +4,14 @@ using System.Diagnostics;
 
 namespace Legos.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public AdminController(ILogger<AdminController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Privacy()
         {
@@ -45,11 +40,19 @@ namespace Legos.Controllers
             return View();
         }
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult AdminIndex()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+        public IActionResult DeleteConfirmation()
+        {
+            return View();
+        }
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
