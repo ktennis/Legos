@@ -28,6 +28,21 @@ body {
     border-color: #CEE2E4;
     margin-top: 30px;
 }
+
+.btn-confirm {
+    margin-right: 5px !important;
+}
+
+.btn-cancel {
+    margin-left: 450px !important;
+}
+
+.btn-confirm, .btn-cancel {
+    width: 100px; 
+    display: inline-block; 
+    text-align: center;
+}
+
 .navbar-logo {
     max-width: 30px;
 }
