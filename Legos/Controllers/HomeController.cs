@@ -6,13 +6,16 @@ namespace Legos.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        //private readonly ILogger<HomeController> _logger;
+        private ILegosRepository _repo;
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+        public HomeController(ILegosRepository temp)
         {
-            _logger = logger;
+            _repo = temp;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -33,7 +36,8 @@ namespace Legos.Controllers
         }
         public IActionResult Products()
         {
-            return View();
+            var productData = _repo.Products;
+            return View(productData);
         }
 
         //with Pagination

@@ -11,6 +11,8 @@ builder.Services.AddDbContext<AurorasBricksContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:LegosConnection"]);
 });
+
+builder.Services.AddScoped<ILegosRepository, EFLegosRepository>();
  //Add services to the container.
 services.AddAuthentication().AddGoogle(googleOptions =>
 {
