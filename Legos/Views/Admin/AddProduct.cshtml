@@ -93,33 +93,74 @@
     <input required /> <br /><br />
     @* <input asp-for="Description" required /> <br/><br/> *@
 
-    <label class="ribeye-regular">Category:</label><br />
-    <select multiple>
-        <option>DC</option>
-        <option>Harry Potter</option>
-        <option>Star Wars</option>
-        <option>Flight</option>
-        <option>Personal</option>
-        <option>Vehicle</option>
-        <option>Car</option>
-        <option>Promotional</option>
-        <option>Motorbike</option>
-        <option>Person</option>
-        <option>Game</option>
-        <option>Minifig</option>
-        <option>Food</option>
-        <option>Train</option>
-        <option>Animal</option>
-        <option>Building</option>
-        <option>Part</option>
-        <option>Energy</option>
-        <option>Character</option>
-        <option>Disney</option>
-        <option>Floral</option>
-        <option>Colorful</option>
-        <option>Farm</option>
-        <option>Structure</option>
-    </select><br /><br />
+    <label class="ribeye-regular dropdown-content" id="categoryDropdown">Category:</label><br />
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropdown-btn">Select Category</button>
+        <div id="categoryDropdown" class="dropdown-content">
+            <input type="checkbox" id="Flight" name="category" value="Flight">
+            <label for="Flight">Flight</label><br>
+
+            <input type="checkbox" id="Personal" name="category" value="Personal">
+            <label for="Personal">Personal</label><br>
+
+            <input type="checkbox" id="Vehicle" name="category" value="Vehicle">
+            <label for="Vehicle">Vehicle</label><br>
+
+            <input type="checkbox" id="Car" name="category" value="Car">
+            <label for="Car">Car</label><br>
+
+            <input type="checkbox" id="Promotional" name="category" value="Promotional">
+            <label for="Promotional">Promotional</label><br>
+
+            <input type="checkbox" id="Motorbike" name="category" value="Motorbike">
+            <label for="Motorbike">Motorbike</label><br>
+
+            <input type="checkbox" id="Person" name="category" value="Person">
+            <label for="Person">Person</label><br>
+
+            <input type="checkbox" id="Game" name="category" value="Game">
+            <label for="Game">Game</label><br>
+
+            <input type="checkbox" id="Minifig" name="category" value="Minifig">
+            <label for="Minifig">Minifig</label><br>
+
+            <input type="checkbox" id="Food" name="category" value="Food">
+            <label for="Food">Food</label><br>
+
+            <input type="checkbox" id="Train" name="category" value="Train">
+            <label for="Train">Train</label><br>
+
+            <input type="checkbox" id="Animal" name="category" value="Animal">
+            <label for="Animal">Animal</label><br>
+
+            <input type="checkbox" id="Building" name="category" value="Building">
+            <label for="Building">Building</label><br>
+
+            <input type="checkbox" id="Part" name="category" value="Part">
+            <label for="Part">Part</label><br>
+
+            <input type="checkbox" id="Energy" name="category" value="Energy">
+            <label for="Energy">Energy</label><br>
+
+            <input type="checkbox" id="Character" name="category" value="Character">
+            <label for="Character">Character</label><br>
+
+            <input type="checkbox" id="Disney" name="category" value="Disney">
+            <label for="Disney">Disney</label><br>
+
+            <input type="checkbox" id="Floral" name="category" value="Floral">
+            <label for="Floral">Floral</label><br>
+
+            <input type="checkbox" id="Colorful" name="category" value="Colorful">
+            <label for="Colorful">Colorful</label><br>
+
+            <input type="checkbox" id="Farm" name="category" value="Farm">
+            <label for="Farm">Farm</label><br>
+
+            <input type="checkbox" id="Structure" name="category" value="Structure">
+            <label for="Structure">Structure</label><br>
+        </div>
+    </div><br /><br />
     @* <select asp-for="Role" required> *@
             <option value="DC">DC</option>
     <option value="HarryPotter">Harry Potter</option>
