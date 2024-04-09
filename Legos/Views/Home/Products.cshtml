@@ -3,6 +3,93 @@
 *@
 @{
 }
-<div class="text-center">
-    <h1 class="display-4 ribeye-regular">Products</h1>
+
+@* @model ProductListViewModel *@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 text-center">
+            <h1 class="display-4 ribeye-regular">Products</h1>
+        </div>
+        <div class="col-md-4 text-right">
+            <a class="text-right" href="#" onclick="toggleFilterPopup()">
+                <img src="~/filter.png" class="filter-icon" />
+            </a>
+        </div>
+    </div>
 </div>
+
+@* @foreach(ProductListViewModel p in Model.Products)
+{
+    <h3>@p.ProductName</h3>
+} *@
+
+
+<div id="filterPopup" class="filter-popup">
+    <div class="filter-content">
+        <!-- Filter options go here -->
+        <label>Filter by Color:</label>
+        <select>
+                <option>None</option>
+                <option value="Grey">Grey</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="Red">Red</option>
+                <option value="Tan">Tan</option>
+                <option value="Brown">Brown</option>
+                <option value="White">White</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Pink">Pink</option>
+                <option value="Orange">Orange</option>
+        </select><br /><br />
+        <label>Filter by Category:</label>
+        <select>
+            <option>None</option>
+            <option value="DC">DC</option>
+            <option value="HarryPotter">Harry Potter</option>
+            <option value="StarWars">Star Wars</option>
+            <option value="Flight">Flight</option>
+            <option value="Personal">Personal</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Car">Car</option>
+            <option value="Promotional">Promotional</option>
+            <option value="Motorbike">Motorbike</option>
+            <option value="Person">Person</option>
+            <option value="Game">Game</option>
+            <option value="Minifig">Minifig</option>
+            <option value="Food">Food</option>
+            <option value="Train">Train</option>
+            <option value="Animal">Animal</option>
+            <option value="Building">Building</option>
+            <option value="Part">Part</option>
+            <option value="Energy">Energy</option>
+            <option value="Character">Character</option>
+            <option value="Disney">Disney</option>
+            <option value="Floral">Floral</option>
+            <option value="Colorful">Colorful</option>
+            <option value="Farm">Farm</option>
+            <option value="Structure">Structure</option>
+        </select><br /><br />
+        <!-- Add more filter controls as needed -->
+        <!-- Close button -->
+        <button onclick="toggleFilterPopup()">Close</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for filter popup -->
+<script>
+    function toggleFilterPopup() {
+        var popup = document.getElementById("filterPopup");
+        popup.style.display = (popup.style.display === "none") ? "block" : "none";
+    }
+</script>
+
+<a asp-controller="Home" asp-action="Products" asp-route-pageNum="1">1</a>
+<a asp-controller="Home" asp-action="Products" asp-route-pageNum="2">2</a>
+<a asp-controller="Home" asp-action="Products" asp-route-pageNum="3">3</a>
+

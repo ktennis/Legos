@@ -131,3 +131,29 @@ form button[type="submit"]:hover {
 .show {
     display: block;
 }
+
+.filter-icon {
+    width: 30px; 
+    height: auto;
+    margin-top: 10px;
+    margin-left: 330px;
+}
+.filter-popup {
+    display: none; /* Initially hide the filter popup */
+    position: fixed; /* Position the popup fixed to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure the popup appears on top of other content */
+}
+
+.filter-content {
+    background-color: #fff; /* White background for the popup content */
+    width: 300px;
+    margin: 50px auto; /* Center the popup vertically and horizontally */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
