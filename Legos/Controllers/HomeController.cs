@@ -34,33 +34,33 @@ namespace Legos.Controllers
         {
             return View();
         }
-        public IActionResult Products()
-        {
-            var productData = _repo.Products;
-            return View(productData);
-        }
+        //public IActionResult Products()
+        //{
+        //    var productData = _repo.Products;
+        //    return View(productData);
+        //}
 
         //with Pagination
-        ///public IActionResult Products(int pageNum)
-        //{
-        //    int pageSize = userPageDisplayData;
-        //    var Blah = new ProductsListViewModel
-        //    {
-        //        Products = _repo.Products
-        //          .Skip((pageNum - 1) * pageSize)
-        //          .Take(pageSize),
+        public IActionResult Products(int pageNum)
+        {
+            int pageSize = userPageDisplayData;
+            var Blah = new ProductsListViewModel
+            {
+                Products = _repo.Products
+                  .Skip((pageNum - 1) * pageSize)
+                  .Take(pageSize),
 
-        //        PageinationInfo = new PaginationInfo
-        //        {
-        //            CurrentPage = pageNum,
-        //            ItemsPerPage = pageSize,
-        //            TotalItems = _repo.Projects.Count()
-        //        }
+                PageinationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Projects.Count()
+                }
 
-        //    };
-        //      return View(Blah);
-              
-        //}
+            };
+            return View(Blah);
+
+        }
         public IActionResult About()
         {
             return View();
