@@ -18,7 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif !important;
 }
 .navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-light.bg-white.border-bottom.box-shadow.mb-3 {
     background-color: #CEE2E4 !important;
@@ -35,6 +36,11 @@ body {
     border-color: #CEE2E4;
     margin-left: 200px;
     margin-top: 20px;
+}
+.btn-cart {
+    background-color: #CEE2E4 !important;
+    color: black !important;
+    border-color: #CEE2E4;
 }
 
 .btn-confirm {
@@ -57,6 +63,12 @@ body {
 .ribeye-regular {
     font-family: "Ribeye", serif;
     font-weight: 400;
+    font-style: normal;
+}
+
+.Montserrat-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -159,18 +171,25 @@ form button[type="submit"]:hover {
 }
 
 .product-item {
-    height: 500px; /* Set a fixed height for each product box */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Align items with space between them */
+    height: 320px;
+    max-width: 100%; /* Ensure the product item doesn't overflow its container */
     margin-bottom: 20px; /* Adjust spacing between product items */
     border: 1px solid #ccc; /* Add border with gray color */
     border-radius: 5px; /* Add rounded corners */
     padding: 10px; /* Add some padding for better spacing */
-    overflow: hidden; /* Hide overflow content */
 }
 
 .product-image {
     width: 100%; /* Set the image width to fill the container */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 400px; /* Set a maximum height for the image */
-    max-width: 90%; /* Set a maximum width for the image */
+    max-width: 100%; /* Set a maximum width for the image */
+    max-height: 150px; /* Set a maximum height for the image */
     border-radius: 5px; /* Add rounded corners to images */
+    object-fit: contain; /* Scale the image to fit inside the container while maintaining aspect ratio */
+}
+
+.product-text {
+    margin-top: auto;
 }
