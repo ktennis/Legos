@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using Legos.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using SQLitePCL;
 
 namespace Legos.Areas.Identity.Pages.Account
 {
@@ -29,13 +31,15 @@ namespace Legos.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly AurorasBricksContext _context;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            AurorasBricksContext context)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,6 +47,7 @@ namespace Legos.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -97,6 +102,26 @@ namespace Legos.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "First Name")]
+            public string first_name { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string last_name { get; set; }
+
+            [Required]
+            [Display(Name = "Birth Date")]
+            public string birth_date { get; set; }
+
+            [Required]
+            [Display(Name = "Country")]
+            public string country_of_residence { get; set; }
+
+            [Required]
+            [Display(Name = "Gender")]
+            public string Gender { get; set; }
         }
 
 
@@ -114,6 +139,32 @@ namespace Legos.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+                // calculate age from birthdate
+                static int CalculateAge(DateTime dateOfBirth)
+                {
+                    int age = 0;
+                    age = DateTime.Now.Year - dateOfBirth.Year;
+                    if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                        age = age - 1;
+
+                    return age;
+                }
+
+                DateTime dob = Convert.ToDateTime(Input.birth_date);
+                int age = CalculateAge(dob);
+
+                // change the date format
+                static string FormatDate(DateTime dateOfBirth)
+                {
+                    string dob = dateOfBirth.ToString("MM'/'dd'/'yyyy");
+                    return dob;
+                }
+
+                string birthday = FormatDate(dob);
+
+                var customer = new Customer { Email = Input.Email, FirstName = Input.first_name, LastName = Input.last_name, BirthDate = birthday, CountryOfResidence = Input.country_of_residence, Age = age, Gender = Input.Gender};
+                _context.Add(customer);
+                await _context.SaveChangesAsync();
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
