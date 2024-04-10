@@ -26,20 +26,57 @@ namespace Legos.Controllers
         {
             return View();
         }
-
-        public IActionResult ProductDetail()
+        
+        public IActionResult ProductDetail(int productId)
         {
-            return View();
+            var product = _repo.Products.FirstOrDefault(p => p.ProductId == productId);
+    
+            if (product == null)
+            {
+                // Handle case where product with given ID is not found
+                return RedirectToAction("Index"); // Redirect to home or appropriate page
+            }
+
+            return View(product);
+        }
+        public IActionResult ChangePageSize(int pageSize)
+        {
+            // Update the page size in session or any other storage mechanism
+            // For now, I'll assume you're updating it in session
+            HttpContext.Session.SetInt32("PageSize", pageSize);
+
+            // Redirect back to the Products action to reload the page with the new page size
+            return RedirectToAction("Products", new { pageNum = 1 });
         }
 
-        public IActionResult Products(int pageNum)
+
+        //public IActionResult Products(int pageNum)
+        //{
+        //    int pageSize;
+        //    var ProductData = new ProductListViewModel
+        //    {
+        //        Products = _repo.Products
+        //          .Skip((pageNum - 1) * pageSize)
+        //          .Take(pageSize),
+
+        //        PaginationInfo = new PaginationInfo
+        //        {
+        //            CurrentPage = pageNum,
+        //            ItemsPerPage = pageSize,
+        //            TotalItems = _repo.Products.Count()
+        //        }
+
+        //    };
+        //    return View(ProductData);
+
+        //}
+        public IActionResult Products(int pageNum, int pageSize = 5)
         {
-            int pageSize = 5;
             var ProductData = new ProductListViewModel
             {
                 Products = _repo.Products
-                  .Skip((pageNum - 1) * pageSize)
-                  .Take(pageSize),
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
 
                 PaginationInfo = new PaginationInfo
                 {
@@ -47,11 +84,14 @@ namespace Legos.Controllers
                     ItemsPerPage = pageSize,
                     TotalItems = _repo.Products.Count()
                 }
-
             };
-            return View(ProductData);
 
+            //// Store the selected page size in session
+            //HttpContext.Session.SetInt32("PageSize", pageSize);
+
+            return View(ProductData);
         }
+
         public IActionResult About()
         {
             return View();

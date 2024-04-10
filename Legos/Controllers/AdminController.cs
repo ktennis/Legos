@@ -54,7 +54,7 @@ namespace Legos.Controllers
 
         public IActionResult AdminUsers(int pageNum)
         {
-            int pageSize = 5;
+            int pageSize = 800;
             var CustomerData = new CustomerListViewModel
             {
                 Customers = _repo.Customers
