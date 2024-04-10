@@ -8,13 +8,10 @@
 @* @model IQueryable<Product> *@
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4 offset-md-4 text-center">
-            <h1 class="display-4 ribeye-regular">Products</h1>
-        </div>
-        <div text-left>
-            <label>Filter by Color:</label>
-            <select>
+    <div class="row align-items-center">
+        <div class="col-md-4 text-left">
+            <label class="mr-2">Filter by Color:</label>
+            <select class="mr-4">
                 <option>None</option>
                 <option value="Grey">Grey</option>
                 <option value="Black">Black</option>
@@ -27,8 +24,8 @@
                 <option value="Yellow">Yellow</option>
                 <option value="Pink">Pink</option>
                 <option value="Orange">Orange</option>
-            </select><br /><br />
-            <label>Filter by Category:</label>
+            </select>
+            <label class="mr-2">Filter by Category:</label>
             <select>
                 <option>None</option>
                 <option value="DC">DC</option>
@@ -55,41 +52,40 @@
                 <option value="Colorful">Colorful</option>
                 <option value="Farm">Farm</option>
                 <option value="Structure">Structure</option>
-            </select><br /><br />
+            </select>
+        </div>
+        <div class="col-md-4 text-center">
+            <h1 class="display-4 ribeye-regular">Products</h1>
         </div>
         <div class="col-md-4 text-right">
             <div class="row align-items-center justify-content-end">
                 <div class="col-auto">
-@*                     <a href="#" onclick="toggleFilterPopup()">
-                        <img src="~/filter.png" class="filter-icon" />
-                    </a> *@
+                    <!-- Add your filter icon or other elements here -->
                 </div>
-                <div class="col-auto ml-2 mt-2">
+                <div class="col-auto ml-2">
                     <p class="mb-0">Items on Page:</p>
                 </div>
-                <div class="col-auto mt-2">
-                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 5 })" class="mr-1">5</a>
+                <div class="col-auto">
+                    <a href="#" class="mr-1">5</a>
                 </div>
-                <div class="col-auto mt-2">
+                <div class="col-auto">
                     <span>|</span>
                 </div>
-                <div class="col-auto mt-2">
-                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 10 })" class="mr-1">10</a>
+                <div class="col-auto">
+                    <a href="#" class="mr-1">10</a>
                 </div>
-                <div class="col-auto mt-2">
+                <div class="col-auto">
                     <span>|</span>
                 </div>
-                <div class="col-auto mt-2">
-                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 20 })">20</a>
+                <div class="col-auto">
+                    <a href="#">20</a>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-    </div>
-</div>
+
 <div class="container mt-3">
     <div class="row">
         @foreach (Product p in Model.Products)
