@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Legos.Services;
 using Microsoft.ML;
+using Microsoft.Build.Construction;
 
 internal class Program
 {
@@ -100,7 +101,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
         app.UseRouting();
 
         app.UseAuthorization();
-
+        app.MapControllerRoute("pagenumandtype", "{productName}/{pageNum}", new { Controller = "Home", action = "Index" });
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");

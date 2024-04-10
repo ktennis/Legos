@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IQueryable<string>
+
+<div class="d-grid gap-2">
+    <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Products" asp-route-productName="">Products</a>
+    @foreach (string pt in Model ?? Enumerable.Empty<string>())
+    {
+        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Products" asp-route-productName="@pt" asp-route-pageNum="1">@pt</a>
+    }
+</div>
+
