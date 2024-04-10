@@ -1,5 +1,7 @@
 ﻿@page
 @using Microsoft.EntityFrameworkCore
+@using Microsoft.EntityFrameworkCore.Infrastructure
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @model Legos.Views.Home.CartModel
 @{
 }
@@ -15,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
+        @foreach(var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
         {
             <tr>
                 <td class="text-left">@l.Product.Name</td>
