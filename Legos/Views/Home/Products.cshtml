@@ -62,24 +62,26 @@
                 <div class="col-auto">
                     <!-- Add your filter icon or other elements here -->
                 </div>
-                <div class="col-auto ml-2">
+                <div class="col-auto ml-2 mt-2">
                     <p class="mb-0">Items on Page:</p>
                 </div>
-                <div class="col-auto">
-                    <a href="#" class="mr-1">5</a>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 5 })" class="mr-1">5</a>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto mt-2">
                     <span>|</span>
                 </div>
-                <div class="col-auto">
-                    <a href="#" class="mr-1">10</a>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 10 })" class="mr-1">10</a>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto mt-2">
                     <span>|</span>
                 </div>
-                <div class="col-auto">
-                    <a href="#">20</a>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 20 })">20</a>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
     </div>
