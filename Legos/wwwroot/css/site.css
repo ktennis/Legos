@@ -206,6 +206,11 @@ form button[type="submit"]:hover {
     margin-bottom: 20px; /* Add margin at the bottom */
 }
 
+.dropdown-content {
+    display: none;
+}
+
+
 /*.btn-custom:hover {
     background-color: #45a049;  Change background color on hover 
 }*/

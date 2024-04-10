@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 offset-md-4 text-center">
@@ -12,26 +13,40 @@
         </div>
     </div>
 </div>
-@foreach (Customer c in Model.Customers)
-{
-    <div class="col-md-6">
-        <div>
-            <h4 class="product-text Montserrat-font">@c.FirstName</h4>
-        </div>
-    </div>
-}
 
 <table class="table table-bordered table-striped">
-<thead>
-<tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th class="text-right">Role</th>
-    <th class="text-right">Edit/Delete</th>
-    <th>More Info</th>
-</tr>
-</thead>
-<tbody>
-
-</tbody>
+    <thead>
+        <tr>
+            <th class="text-right">CustomerID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th class="text-right">Role</th>
+            <th class="text-right">Birth Date</th>
+            <th class="text-right">Country of Residence</th>
+            <th class="text-right">Gender</th>
+            <th class="text-right">Age</th>
+            <th class="text-right">Email</th>
+            <th class="text-right">Edit/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Customer c in Model.Customers)
+        {
+            <tr>
+                <td class="product-text Montserrat-font">@c.CustomerId</td>
+                <td class="product-text Montserrat-font">@c.FirstName</td>
+                <td class="product-text Montserrat-font">@c.LastName</td>
+                <td class="product-text Montserrat-font"></td>
+                <td class="product-text Montserrat-font">@c.BirthDate</td>
+                <td class="product-text Montserrat-font">@c.CountryOfResidence</td>
+                <td class="product-text Montserrat-font">@c.Gender</td>
+                <td class="product-text Montserrat-font">@c.Age</td>
+                <td class="product-text Montserrat-font">@c.Email</td>
+                <td class="product-text Montserrat-font">Edit | Delete</td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<div page-model="@Model.PaginationInfo" page-action="Customers"></div>
+
