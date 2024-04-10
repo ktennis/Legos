@@ -99,9 +99,7 @@ public partial class AurorasBricksContext : DbContext
         {
             entity.ToTable("customer");
 
-            entity.Property(e => e.CustomerId)
-                .ValueGeneratedNever()
-                .HasColumnName("customer_ID");
+            entity.Property(e => e.CustomerId).HasColumnName("customer_ID");
             entity.Property(e => e.Age).HasColumnName("age");
             entity.Property(e => e.BirthDate).HasColumnName("birth_date");
             entity.Property(e => e.CountryOfResidence).HasColumnName("country_of_residence");
@@ -113,22 +111,25 @@ public partial class AurorasBricksContext : DbContext
 
         modelBuilder.Entity<LineItem>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("line_items");
+            entity.HasKey(e => new { e.TransactionId, e.ProductId });
 
+            entity.ToTable("line_items");
+
+            entity.Property(e => e.TransactionId).HasColumnName("transaction_ID");
             entity.Property(e => e.ProductId).HasColumnName("product_ID");
             entity.Property(e => e.Qty).HasColumnName("qty");
             entity.Property(e => e.Rating).HasColumnName("rating");
-            entity.Property(e => e.TransactionId).HasColumnName("transaction_ID");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("orders");
+            entity.HasKey(e => e.TransactionId);
 
+            entity.ToTable("orders");
+
+            entity.HasIndex(e => e.TransactionId, "IX_orders_transaction_ID").IsUnique();
+
+            entity.Property(e => e.TransactionId).HasColumnName("transaction_ID");
             entity.Property(e => e.Amount).HasColumnName("amount");
             entity.Property(e => e.Bank).HasColumnName("bank");
             entity.Property(e => e.CountryOfTransaction).HasColumnName("country_of_transaction");
@@ -139,7 +140,6 @@ public partial class AurorasBricksContext : DbContext
             entity.Property(e => e.Fraud).HasColumnName("fraud");
             entity.Property(e => e.ShippingAddress).HasColumnName("shipping_address");
             entity.Property(e => e.Time).HasColumnName("time");
-            entity.Property(e => e.TransactionId).HasColumnName("transaction_ID");
             entity.Property(e => e.TypeOfCard).HasColumnName("type_of_card");
             entity.Property(e => e.TypeOfTransaction).HasColumnName("type_of_transaction");
         });
@@ -148,9 +148,9 @@ public partial class AurorasBricksContext : DbContext
         {
             entity.ToTable("products");
 
-            entity.Property(e => e.ProductId)
-                .ValueGeneratedNever()
-                .HasColumnName("product_ID");
+            entity.HasIndex(e => e.ProductId, "IX_products_product_ID").IsUnique();
+
+            entity.Property(e => e.ProductId).HasColumnName("product_ID");
             entity.Property(e => e.Category).HasColumnName("category");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.ImgLink).HasColumnName("img_link");
@@ -158,6 +158,11 @@ public partial class AurorasBricksContext : DbContext
             entity.Property(e => e.NumParts).HasColumnName("num_parts");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.PrimaryColor).HasColumnName("primary_color");
+            entity.Property(e => e.Rec1).HasColumnName("rec_1");
+            entity.Property(e => e.Rec2).HasColumnName("rec_2");
+            entity.Property(e => e.Rec3).HasColumnName("rec_3");
+            entity.Property(e => e.Rec4).HasColumnName("rec_4");
+            entity.Property(e => e.Rec5).HasColumnName("rec_5");
             entity.Property(e => e.SecondaryColor).HasColumnName("secondary_color");
             entity.Property(e => e.Year).HasColumnName("year");
         });
