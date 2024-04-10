@@ -195,7 +195,7 @@ form button[type="submit"]:hover {
 }
 
 .banner-container {
-    background-color: #f5f5dc; /* Set background color to a light tan/off-white */
+    background-color: #f2ece6;/* Set background color to a light tan/off-white */
     padding: 50px 0; /* Add padding to top and bottom */
 }
 
@@ -206,6 +206,6 @@ form button[type="submit"]:hover {
     margin-bottom: 20px; /* Add margin at the bottom */
 }
 
-.btn-custom:hover {
-    background-color: #45a049; /* Change background color on hover */
-}
+/*.btn-custom:hover {
+    background-color: #45a049;  Change background color on hover 
+}*/

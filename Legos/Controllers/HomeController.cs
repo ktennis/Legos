@@ -1,17 +1,14 @@
 using Legos.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Legos.Models.ViewModels;
 
 namespace Legos.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
         private ILegosRepository _repo;
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
+
         public HomeController(ILegosRepository temp)
         {
             _repo = temp;
@@ -34,33 +31,27 @@ namespace Legos.Controllers
         {
             return View();
         }
-        //public IActionResult Products()
-        //{
-        //    var productData = _repo.Products;
-        //    return View(productData);
-        //}
 
-        //with Pagination
-        //public IActionResult Products(int pageNum)
-        //{
-        //    int pageSize = userPageDisplayData;
-        //    var Blah = new ProductsListViewModel
-        //    {
-        //        Products = _repo.Products
-        //          .Skip((pageNum - 1) * pageSize)
-        //          .Take(pageSize),
+        public IActionResult Products(int pageNum)
+        {
+            int pageSize = 5;
+            var ProductData = new ProductListViewModel
+            {
+                Products = _repo.Products
+                  .Skip((pageNum - 1) * pageSize)
+                  .Take(pageSize),
 
-        //        PageinationInfo = new PaginationInfo
-        //        {
-        //            CurrentPage = pageNum,
-        //            ItemsPerPage = pageSize,
-        //            TotalItems = _repo.Projects.Count()
-        //        }
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Products.Count()
+                }
 
-        //    };
-        //    return View(Blah);
+            };
+            return View(ProductData);
 
-        //}
+        }
         public IActionResult About()
         {
             return View();

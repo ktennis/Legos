@@ -12,6 +12,14 @@
         </div>
     </div>
 </div>
+@foreach (Customer c in Model.Customers)
+{
+    <div class="col-md-6">
+        <div>
+            <h4 class="product-text Montserrat-font">@c.FirstName</h4>
+        </div>
+    </div>
+}
 
 <table class="table table-bordered table-striped">
 <thead>
