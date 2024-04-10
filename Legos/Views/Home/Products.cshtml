@@ -1,4 +1,4 @@
-﻿@*
+﻿﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -13,29 +13,55 @@
             <h1 class="display-4 ribeye-regular">Products</h1>
         </div>
         <div class="col-md-4 text-right">
-            <a class="text-right" href="#" onclick="toggleFilterPopup()">
-                <img src="~/filter.png" class="filter-icon" />
-            </a>
+            <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                    <a href="#" onclick="toggleFilterPopup()">
+                        <img src="~/filter.png" class="filter-icon" />
+                    </a>
+                </div>
+                <div class="col-auto ml-2 mt-2">
+                    <p class="mb-0">Items on Page:</p>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 5 })" class="mr-1">5</a>
+                </div>
+                <div class="col-auto mt-2">
+                    <span>|</span>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 10 })" class="mr-1">10</a>
+                </div>
+                <div class="col-auto mt-2">
+                    <span>|</span>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("Products", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 20 })">20</a>
+                </div>
+            </div>
         </div>
+
+            </div>
+        </div>
+
     </div>
 </div>
-    <div class="container">
-        <div class="row">
-            @foreach (Product p in Model.Products)
-            {
-                <div class="col-md-6">
-                    <div class="product-item">
-                        <img src="@p.ImgLink" class="product-image" />
-                        <a href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })" class="product-text Montserrat-font">@p.Name</a>
-@*                         <a href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">View Details</a> *@
-                        <p class="product-text Montserrat-font">Price: $@p.Price</p>
-                        <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+<div class="container mt-3">
+    <div class="row">
+        @foreach (Product p in Model.Products)
+        {
+            <div class="col-md-6">
+                <div class="product-item">
+                    <img src="@p.ImgLink" class="product-image" />
+                    <a class="ribeye-regular .product-item product-text" href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">@p.Name</a>
+                    @*                         <a href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">View Details</a> *@
+                    <p class="product-text Montserrat-font">Price: $@p.Price</p>
+                    <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
 
-                    </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+</div>
 
 @* @foreach(ProductListViewModel p in Model.Products)
 {
@@ -48,18 +74,18 @@
         <!-- Filter options go here -->
         <label>Filter by Color:</label>
         <select>
-                <option>None</option>
-                <option value="Grey">Grey</option>
-                <option value="Black">Black</option>
-                <option value="Blue">Blue</option>
-                <option value="Red">Red</option>
-                <option value="Tan">Tan</option>
-                <option value="Brown">Brown</option>
-                <option value="White">White</option>
-                <option value="Green">Green</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Pink">Pink</option>
-                <option value="Orange">Orange</option>
+            <option>None</option>
+            <option value="Grey">Grey</option>
+            <option value="Black">Black</option>
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Tan">Tan</option>
+            <option value="Brown">Brown</option>
+            <option value="White">White</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Pink">Pink</option>
+            <option value="Orange">Orange</option>
         </select><br /><br />
         <label>Filter by Category:</label>
         <select>
@@ -110,4 +136,5 @@
 @* <div page-model="@Model.PaginationInfo" page-action="Products"></div>
  *@
 <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enables="true" page-class="btn"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-4"></div>
+
