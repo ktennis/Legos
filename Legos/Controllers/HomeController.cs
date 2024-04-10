@@ -26,12 +26,20 @@ namespace Legos.Controllers
         {
             return View();
         }
-
-        public IActionResult ProductDetail()
+        
+        public IActionResult ProductDetail(int productId)
         {
-            return View();
-        }
+            var product = _repo.Products.FirstOrDefault(p => p.ProductId == productId);
+    
+            if (product == null)
+            {
+                // Handle case where product with given ID is not found
+                return RedirectToAction("Index"); // Redirect to home or appropriate page
+            }
 
+            return View(product);
+        }
+        
         public IActionResult Products(int pageNum)
         {
             int pageSize = 5;
