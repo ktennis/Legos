@@ -55,7 +55,12 @@
                     <a class="ribeye-regular .product-item product-text" href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">@p.Name</a>
                     @*                         <a href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">View Details</a> *@
                     <p class="product-text Montserrat-font">Price: $@p.Price</p>
-                    <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+@*                     <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+ *@
+                    <form asp-page="/Cart" method="post">
+                        <input type="hidden" name="productId" value="@p.ProductId" />
+                        <button type="submit" class="btn btn-cart">Add to Cart</button>
+                    </form>
 
                 </div>
             </div>
