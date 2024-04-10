@@ -10,5 +10,6 @@ namespace Legos.Models
             _context = temp;
         }
         public IQueryable<Product> Products => _context.Products;
+        public IQueryable<Customer> Customers => _context.Customers;
     }
 }

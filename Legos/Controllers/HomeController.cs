@@ -31,13 +31,7 @@ namespace Legos.Controllers
         {
             return View();
         }
-        //public IActionResult Products()
-        //{
-        //    var productData = _repo.Products;
-        //    return View(productData);
-        //}
 
-        //with Pagination
         public IActionResult Products(int pageNum)
         {
             int pageSize = 5;
