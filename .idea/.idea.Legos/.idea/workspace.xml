@@ -10,10 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/Cart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,27 +30,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Legos: http.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Legos: http.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/zachhansen/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/zachhansen/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Legos: http">
     <configuration name="Legos: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Legos/Legos.csproj" />
@@ -96,7 +95,8 @@
       <workItem from="1712713757656" duration="191000" />
       <workItem from="1712713970530" duration="8578000" />
       <workItem from="1712759856983" duration="9247000" />
-      <workItem from="1712769191060" duration="2621000" />
+      <workItem from="1712769191060" duration="4604000" />
+      <workItem from="1712774670638" duration="1129000" />
     </task>
     <servers />
   </component>
@@ -105,5 +105,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" initialLine="19" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
