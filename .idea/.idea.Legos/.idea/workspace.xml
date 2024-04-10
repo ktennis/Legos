@@ -11,10 +11,9 @@
     <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddProduct.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AddProduct.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_AdminLayout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Shared/_AdminLayout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <workItem from="1712713757656" duration="191000" />
       <workItem from="1712713970530" duration="8578000" />
       <workItem from="1712759856983" duration="9247000" />
-      <workItem from="1712769191060" duration="324000" />
+      <workItem from="1712769191060" duration="2621000" />
     </task>
     <servers />
   </component>

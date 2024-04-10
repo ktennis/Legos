@@ -73,6 +73,24 @@ namespace Legos.Controllers
             return View(CustomerData);
 
         }
+        
+        [HttpGet]
+        public IActionResult EditUser(int id) // get the info for the edits and go back to form to edit them
+        {
+            var recordToEdit = _repo.Customers
+                .Single(x => x.CustomerId == id);
+            
+            return View("AddUser", recordToEdit);
+        }
+        
+        [HttpPost]
+        public IActionResult EditUser(Customer updatedInfo) //save the updated form. return to table
+        {
+            // _repo.Update(updatedInfo);
+            // _repo.SaveChanges();
+
+            return RedirectToAction("AdminUsers");
+        }
 
         public IActionResult AdminReviewOrders()
         {
@@ -104,7 +122,7 @@ namespace Legos.Controllers
         }
         
         [HttpGet]
-        public IActionResult Edit(int id) // get the info for the edits and go back to form to edit them
+        public IActionResult EditProduct(int id) // get the info for the edits and go back to form to edit them
         {
             var recordToEdit = _repo.Products
                 .Single(x => x.ProductId == id);
@@ -113,7 +131,7 @@ namespace Legos.Controllers
         }
         
         [HttpPost]
-        public IActionResult Edit(Product updatedInfo) //save the updated form. return to table
+        public IActionResult EditProduct(Product updatedInfo) //save the updated form. return to table
         {
             // _repo.Update(updatedInfo);
             // _repo.SaveChanges();
