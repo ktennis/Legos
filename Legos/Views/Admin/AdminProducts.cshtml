@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="container">
@@ -15,8 +16,43 @@
     </div>
 </div>
 
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-right">ProductID</th>
+            <th class="text-right">Product Name</th>
+            <th class="text-right">Year</th>
+            <th class="text-right">Num_Parts</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Img Link</th>
+            <th class="text-right">Primary Color</th>
+            <th class="text-right">Secondary Color</th>
+            <th class="text-right">Description</th>
+            <th class="text-right">Category</th>
+            <th class="text-right">Edit/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product p in Model.Products)
+        {
+            <tr>
+                <td class="product-text Montserrat-font">@p.ProductId</td>
+                <td class="product-text Montserrat-font">@p.Name</td>
+                <td class="product-text Montserrat-font">@p.Year</td>
+                <td class="product-text Montserrat-font">@p.NumParts</td>
+                <td class="product-text Montserrat-font">@p.Price</td>
+                <td class="product-text Montserrat-font">@p.ImgLink</td>
+                <td class="product-text Montserrat-font">@p.PrimaryColor</td>
+                <td class="product-text Montserrat-font">@p.SecondaryColor</td>
+                <td class="product-text Montserrat-font">@p.Description</td>
+                <td class="product-text Montserrat-font">@p.Category</td>
+                <td class="product-text Montserrat-font">
+                    <a asp-controller="Admin" asp-action="Edit" asp-route-id="@p.ProductId">Edit</a> | Delete
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-
-
-
-
+<div page-model="@Model.PaginationInfo" page-action="AdminProducts" page-classes-enables="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

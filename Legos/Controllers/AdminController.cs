@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Drawing.Printing;
+using Microsoft.EntityFrameworkCore;
 
 namespace Legos.Controllers
 {
@@ -82,9 +83,42 @@ namespace Legos.Controllers
         {
             return View();
         }
-        public IActionResult AdminProducts()
+        public IActionResult AdminProducts(int pageNum)
         {
-            return View();
+            int pageSize = 10;
+            var ProductData = new ProductListViewModel()
+            {
+                Products = _repo.Products
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Products.Count()
+                }
+
+            };
+            return View(ProductData);
+        }
+        
+        [HttpGet]
+        public IActionResult Edit(int id) // get the info for the edits and go back to form to edit them
+        {
+            var recordToEdit = _repo.Products
+                .Single(x => x.ProductId == id);
+            
+            return View("AddProduct", recordToEdit);
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Product updatedInfo) //save the updated form. return to table
+        {
+            // _repo.Update(updatedInfo);
+            // _repo.SaveChanges();
+
+            return RedirectToAction("AdminProducts");
         }
         public IActionResult AddProduct()
         {
