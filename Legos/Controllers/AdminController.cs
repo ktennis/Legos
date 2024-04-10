@@ -54,26 +54,26 @@ namespace Legos.Controllers
 
         public IActionResult AdminUsers(int pageNum)
         {
-                int pageSize = 30;
-                var CustomerData = new CustomerListViewModel
+            int pageSize = 5;
+            var CustomerData = new CustomerListViewModel
+            {
+                Customers = _repo.Customers
+                  .Skip((pageNum - 1) * pageSize)
+                  .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
                 {
-                    Customers = _repo.Customers
-                      .Skip((pageNum - 1) * pageSize)
-                      .Take(pageSize),
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Customers.Count()
+                }
 
-                    PaginationInfo = new PaginationInfo
-                    {
-                        CurrentPage = pageNum,
-                        ItemsPerPage = pageSize,
-                        TotalItems = _repo.Customers.Count()
-                    }
-
-                };
-                return View(CustomerData);
+            };
+            return View(CustomerData);
 
         }
 
-            public IActionResult AdminReviewOrders()
+        public IActionResult AdminReviewOrders()
         {
             return View();
         }
