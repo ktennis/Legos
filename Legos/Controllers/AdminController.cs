@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Drawing.Printing;
+using Microsoft.EntityFrameworkCore;
 
 namespace Legos.Controllers
 {
@@ -72,6 +73,24 @@ namespace Legos.Controllers
             return View(CustomerData);
 
         }
+        
+        [HttpGet]
+        public IActionResult EditUser(int id) // get the info for the edits and go back to form to edit them
+        {
+            var recordToEdit = _repo.Customers
+                .Single(x => x.CustomerId == id);
+            
+            return View("AddUser", recordToEdit);
+        }
+        
+        [HttpPost]
+        public IActionResult EditUser(Customer updatedInfo) //save the updated form. return to table
+        {
+            // _repo.Update(updatedInfo);
+            // _repo.SaveChanges();
+
+            return RedirectToAction("AdminUsers");
+        }
 
         public IActionResult AdminReviewOrders()
         {
@@ -82,9 +101,42 @@ namespace Legos.Controllers
         {
             return View();
         }
-        public IActionResult AdminProducts()
+        public IActionResult AdminProducts(int pageNum)
         {
-            return View();
+            int pageSize = 10;
+            var ProductData = new ProductListViewModel()
+            {
+                Products = _repo.Products
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Products.Count()
+                }
+
+            };
+            return View(ProductData);
+        }
+        
+        [HttpGet]
+        public IActionResult EditProduct(int id) // get the info for the edits and go back to form to edit them
+        {
+            var recordToEdit = _repo.Products
+                .Single(x => x.ProductId == id);
+            
+            return View("AddProduct", recordToEdit);
+        }
+        
+        [HttpPost]
+        public IActionResult EditProduct(Product updatedInfo) //save the updated form. return to table
+        {
+            // _repo.Update(updatedInfo);
+            // _repo.SaveChanges();
+
+            return RedirectToAction("AdminProducts");
         }
         public IActionResult AddProduct()
         {

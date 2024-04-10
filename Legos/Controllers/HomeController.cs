@@ -84,6 +84,7 @@ namespace Legos.Controllers
                     ItemsPerPage = pageSize,
                     TotalItems = _repo.Products.Count()
                 }
+            
             };
 
             //// Store the selected page size in session
