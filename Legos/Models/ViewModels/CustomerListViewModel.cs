@@ -1,8 +1,8 @@
 ﻿namespace Legos.Models.ViewModels
 {
-    public class ProductListViewModel
+    public class CustomerListViewModel
     {
-        public IQueryable<Product> Products { get; set; }
+        public IQueryable<Customer> Customers { get; set; }
         public PaginationInfo PaginationInfo { get; set; } = new PaginationInfo();
     }
 }

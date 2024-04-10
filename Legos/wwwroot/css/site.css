@@ -193,3 +193,24 @@ form button[type="submit"]:hover {
 .product-text {
     margin-top: auto;
 }
+
+.banner-container {
+    background-color: #f2ece6;/* Set background color to a light tan/off-white */
+    padding: 50px 0; /* Add padding to top and bottom */
+}
+
+.banner-title {
+    color: #000000; /* Set text color to black for better contrast */
+    font-size: 3rem; /* Set font size */
+    line-height: 1.2; /* Adjust line height */
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+.dropdown-content {
+    display: none;
+}
+
+
+/*.btn-custom:hover {
+    background-color: #45a049;  Change background color on hover 
+}*/

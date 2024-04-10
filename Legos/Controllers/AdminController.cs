@@ -1,19 +1,20 @@
 using Legos.Models;
+using Legos.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Drawing.Printing;
 
 namespace Legos.Controllers
 {
     //[Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public AdminController(ILogger<AdminController> logger)
-        //{
-        //    _logger = logger;
-        //}
+        private ILegosRepository _repo;
+        public AdminController(ILegosRepository temp)
+        {
+            _repo = temp;
+        }
 
         public IActionResult Privacy()
         {
@@ -51,11 +52,27 @@ namespace Legos.Controllers
             return View();
         }
 
-        public IActionResult AdminUsers()
+        public IActionResult AdminUsers(int pageNum)
         {
-            return View();
+            int pageSize = 5;
+            var CustomerData = new CustomerListViewModel
+            {
+                Customers = _repo.Customers
+                  .Skip((pageNum - 1) * pageSize)
+                  .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Customers.Count()
+                }
+
+            };
+            return View(CustomerData);
+
         }
-        
+
         public IActionResult AdminReviewOrders()
         {
             return View();
