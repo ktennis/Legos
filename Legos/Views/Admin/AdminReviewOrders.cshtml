@@ -1,8 +1,60 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="text" style="margin-top: 50px;">
+@model OrdersViewModel
+<div class="text-center" style="margin-top: 50px;">
     <h6 class="ribeye-regular" style="font-size: xx-large;">Review Orders</h6>
 </div>
+<br />
+<br />
+<div style="overflow-x: auto">
+    <table class="table table-bordered table-striped" />
+    <thead>
+        <tr>
+            <th class="text-right">Transaction Id</th>
+            <th>Customer Id</th>
+            <th>Date</th>
+            <th class="text-right">Day of Week</th>
+            <th class="text-right">Time</th>
+            <th class="text-right">Entry Mode</th>
+            <th class="text-right">Amount</th>
+            <th class="text-right">Type of Transaction</th>
+            <th class="text-right">Country of Transaction</th>
+            <th class="text-right">Shipping Address</th>
+            <th class="text-right">Bank</th>
+            <th class="text-right">Type of Card</th>
+            <th class="text-right">Fraud</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Order o in Model.Orders)
+        {
+            <tr>
+                <td class="product-text Montserrat-font">@o.TransactionId</td>
+                <td class="product-text Montserrat-font">@o.CustomerId</td>
+                <td class="product-text Montserrat-font">@o.Date</td>
+                <td class="product-text Montserrat-font">@o.DayOfWeek</td>
+                <td class="product-text Montserrat-font">@o.Time</td>
+                <td class="product-text Montserrat-font">@o.EntryMode</td>
+                <td class="product-text Montserrat-font">@o.Amount</td>
+                <td class="product-text Montserrat-font">@o.TypeOfTransaction</td>
+                <td class="product-text Montserrat-font">@o.CountryOfTransaction</td>
+                <td class="product-text Montserrat-font">@o.ShippingAddress</td>
+                <td class="product-text Montserrat-font">@o.Bank</td>
+                <td class="product-text Montserrat-font">@o.TypeOfCard</td>
+                <td class="product-text Montserrat-font">@o.Fraud</td>
+
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>
+
+<div page-model="@Model.PaginationInfo" page-action="AdminReviewOrders" page-classes-enables="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+

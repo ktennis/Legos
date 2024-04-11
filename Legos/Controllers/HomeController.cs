@@ -141,8 +141,30 @@ namespace Legos.Controllers
                 return RedirectToAction("Index"); // Redirect to home or appropriate page
             }
 
-            return View(product);
+            var recommendedProducts = new List<Product>();
+
+            foreach (var recId in new[] { product.Rec1, product.Rec2, product.Rec3, product.Rec4, product.Rec5 })
+            {
+                var recommendedProduct = _repo.Products.FirstOrDefault(p => p.ProductId == recId);
+                if (recommendedProduct != null)
+                {
+                    recommendedProducts.Add(recommendedProduct);
+                }
+            }
+
+            var viewModel = new ProductDetailsViewModel
+            {
+                Product = product,
+                RecommendedProduct1 = recommendedProducts.ElementAtOrDefault(0),
+                RecommendedProduct2 = recommendedProducts.ElementAtOrDefault(1),
+                RecommendedProduct3 = recommendedProducts.ElementAtOrDefault(2),
+                RecommendedProduct4 = recommendedProducts.ElementAtOrDefault(3),
+                RecommendedProduct5 = recommendedProducts.ElementAtOrDefault(4)
+            };
+
+            return View(viewModel);
         }
+        
         public IActionResult ChangePageSize(int pageSize)
         {
             // Update the page size in session or any other storage mechanism

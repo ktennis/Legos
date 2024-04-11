@@ -51,11 +51,26 @@ public class CartModel : PageModel
 
         return RedirectToPage(new { returnUrl });
     }
+    //public IActionResult OnPostRemove(int productId, string returnUrl)
+    //{
+    //    Cart.RemoveLine(Cart.Lines.First(x => x.Product.ProductId == productId).Product);
+    //    return RedirectToPage(new { returnUrl = returnUrl });
+    //}
     public IActionResult OnPostRemove(int productId, string returnUrl)
     {
-        Cart.RemoveLine(Cart.Lines.First(x => x.Product.ProductId == productId).Product);
-        return RedirectToPage(new { returnUrl = returnUrl });
+        if (Cart != null && Cart.Lines.Any())
+        {
+            var productToRemove = Cart.Lines.First(x => x.Product.ProductId == productId)?.Product;
+            if (productToRemove != null)
+            {
+                Cart.RemoveLine(productToRemove);
+                HttpContext.Session.SetJson("cart", Cart);
+            }
+        }
+
+        return RedirectToPage(new { returnUrl });
     }
+
 
 
 }
