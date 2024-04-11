@@ -1,13 +1,11 @@
 ﻿@page
-@using Microsoft.EntityFrameworkCore
-@using Microsoft.EntityFrameworkCore.Infrastructure
-@using Microsoft.EntityFrameworkCore.Metadata.Internal
-@model CartModel
- *@@{
+@model Legos.Pages.CartModel
+@{
 }
+
 <h1 class="ribeye-regular">Checkout</h1>
 
-<table class="table table-bordered table-striped">
+ <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Product Name</th>
@@ -16,8 +14,8 @@
             <th>SubTotal</th>
         </tr>
     </thead>
-    <tbody>
-     @foreach(var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
+  <tbody>
+        @foreach (var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
         {
             <tr>
                 <td class="text-left">@l.Product.Name</td>
