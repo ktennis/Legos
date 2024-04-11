@@ -32,7 +32,8 @@ internal class Program
         builder.Services.AddRazorPages();
         builder.Services.AddDistributedMemoryCache();
         builder.Services.AddSession();
-        services.AddSingleton<Cart>();
+        builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         //Add services to the container.
         services.AddAuthentication().AddGoogle(googleOptions =>
         {

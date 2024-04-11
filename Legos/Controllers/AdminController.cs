@@ -9,6 +9,7 @@ using System.Globalization;
 using Microsoft.EntityFrameworkCore.Design.Internal;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.ML.OnnxRuntime;
+using Microsoft.AspNetCore.Http;
 
 namespace Legos.Controllers
 {
@@ -16,9 +17,15 @@ namespace Legos.Controllers
     public class AdminController : Controller
     {
         private ILegosRepository _repo;
-        public AdminController(ILegosRepository temp)
+        private readonly InferenceSession _session;
+        private readonly string _onnxModelPath;
+        public AdminController(ILegosRepository temp, IHostEnvironment hostEnvironement)
         {
             _repo = temp;
+
+            _onnxModelPath = System.IO.Path.Combine(hostEnvironement.ContentRootPath, "FraudModelDec.onnx");
+
+            _session = new InferenceSession(_onnxModelPath);
         }
 
         public IActionResult AdminPrivacy()
@@ -57,99 +64,135 @@ namespace Legos.Controllers
             return View();
         }
 
-        //public IActionResult AdminReviewOrders()
+        //public IActionResult AdminReviewOrders(int pageNum)
         //{
-
-
-        //    var records = _repo.Orders
-        //        .OrderByDescending(o => o.Date)
-        //        .Take(20)
-        //        .ToList();
-        //    var predictions = new List<OrdersViewModel>();
-
-
-        //    var class_type_dict = new Dictionary<int, string>
+        //    int pageSize = 10;
+        //    var OrderData = new OrdersViewModel()
         //    {
-        //        { 0, "Not Fraud"},
-        //        {1, "Fraud" }
+        //        Orders = _repo.Orders
+        //            .Skip((pageNum - 1) * pageSize)
+        //            .Take(pageSize),
 
-        //    };
-
-        //    foreach (var record in records)
-        //    {
-        //        var january1_2022 = new DateTime(2022, 1, 1);
-
-        //        // Parse the date string to a DateTime with the specified format
-        //        DateTime date = DateTime.ParseExact(record.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-
-        //        var daysSinceJan12022 = Math.Abs((date - january1_2022).Days);
-        //        // Use daysSinceJan12022 as neede
-
-
-        //        float amount = float.Parse(record.Amount);
-
-        //        var input = new List<float>
-        //            {
-        //                (float)record.CustomerId,
-        //                (float)record.Time,
-        //                amount,
-        //                daysSinceJan12022,
-
-        //                //dummy codes
-
-        //                record.DayOfWeek == "Mon" ? 1 : 0,
-        //                record.DayOfWeek == "Sat" ? 1 : 0,
-        //                record.DayOfWeek == "Sun" ? 1 : 0,
-        //                record.DayOfWeek == "Thu" ? 1 : 0,
-        //                record.DayOfWeek == "Tue" ? 1 : 0,
-        //                record.DayOfWeek == "Wed" ? 1 : 0,
-
-        //                record.EntryMode == "Pin" ? 1 : 0,
-        //                record.EntryMode == "Tap" ? 1 : 0,
-
-        //                record.TypeOfTransaction == "Online" ? 1 : 0,
-        //                record.TypeOfTransaction == "POS" ? 1 : 0,
-
-        //                record.CountryOfTransaction == "India" ? 1 : 0,
-        //                record.CountryOfTransaction == "Russia" ? 1 : 0,
-        //                record.CountryOfTransaction == "USA" ? 1 : 0,
-        //                record.CountryOfTransaction == "United Kingdom" ? 1 : 0,
-
-        //                record.ShippingAddress == "India" ? 1 : 0,
-        //                record.ShippingAddress == "Russia" ? 1 : 0,
-        //                record.ShippingAddress == "USA" ? 1 : 0,
-        //                record.ShippingAddress == "United Kingdom" ? 1 : 0,
-
-        //                record.Bank == "HSBC" ? 1 : 0,
-        //                record.Bank == "Halifax" ? 1 : 0,
-        //                record.Bank == "Lloyds" ? 1 : 0,
-        //                record.Bank == "Metro" ? 1 : 0,
-        //                record.Bank == "Monzo" ? 1 : 0,
-        //                record.Bank == "RBS" ? 1 : 0,
-
-        //                record.TypeOfCard == "Visa" ? 1 : 0
-        //        };
-        //        var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
-
-        //        var inputs = new List<NamedOnnxValue>
-        //            {
-        //                NamedOnnxValue.CreateFromTensor("float-input", inputTensor)
-        //            };
-
-        //        string predictionResult;
-        //        using (var results = _session.Run(inputs))
-
+        //        PaginationInfo = new PaginationInfo
         //        {
-        //            var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
-        //            predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
+        //            CurrentPage = pageNum,
+        //            ItemsPerPage = pageSize,
+        //            TotalItems = _repo.Products.Count()
         //        }
 
-        //        predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
         //    };
-        //    return View(predictions);
-
+        //    return View(OrderData);
         //}
-    
+
+        public IActionResult AdminReviewOrders(int pageNum)
+        {
+
+            var records = _repo.Orders
+                .OrderByDescending(o => o.Date)
+                .Take(200)
+                .ToList();
+            var predictions = new List<OrdersViewModel>();
+            var class_type_dict = new Dictionary<int, string>
+                {
+                    { 0, "Not Fraud"},
+                    {1, "Fraud" }
+                };
+
+            foreach (var record in records)
+            {
+                var january1_2022 = new DateTime(2022, 1, 1);
+                var dateString = record.Date;
+
+                string[] dateComponents = dateString.Split('/');
+                int day = int.Parse(dateComponents[1]);
+                int month = int.Parse(dateComponents[0]);
+                int year = int.Parse(dateComponents[2]);
+
+                var recordDate = new DateTime(year, month, day);
+
+                //DateTime date = DateTime.ParseExact(record.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                var daysSinceJan12022 = Math.Abs((recordDate - january1_2022).Days);
+                float amount = float.Parse(record.Amount);
+
+                var input = new List<float>
+                        {
+                            //(float)record.CustomerId,
+                            //(float)record.Time,
+                            //amount,
+                            daysSinceJan12022,
+
+                            //dummy codes
+
+                            record.DayOfWeek == "Mon" ? 1 : 0,
+                            record.DayOfWeek == "Sat" ? 1 : 0,
+                            record.DayOfWeek == "Sun" ? 1 : 0,
+                            record.DayOfWeek == "Thu" ? 1 : 0,
+                            record.DayOfWeek == "Tue" ? 1 : 0,
+                            record.DayOfWeek == "Wed" ? 1 : 0,
+
+                            record.EntryMode == "Pin" ? 1 : 0,
+                            record.EntryMode == "Tap" ? 1 : 0,
+
+                            record.TypeOfTransaction == "Online" ? 1 : 0,
+                            record.TypeOfTransaction == "POS" ? 1 : 0,
+
+                            record.CountryOfTransaction == "India" ? 1 : 0,
+                            record.CountryOfTransaction == "Russia" ? 1 : 0,
+                            record.CountryOfTransaction == "USA" ? 1 : 0,
+                            record.CountryOfTransaction == "United Kingdom" ? 1 : 0,
+
+                            record.ShippingAddress == "India" ? 1 : 0,
+                            record.ShippingAddress == "Russia" ? 1 : 0,
+                            record.ShippingAddress == "USA" ? 1 : 0,
+                            record.ShippingAddress == "United Kingdom" ? 1 : 0,
+
+                            record.Bank == "HSBC" ? 1 : 0,
+                            record.Bank == "Halifax" ? 1 : 0,
+                            record.Bank == "Lloyds" ? 1 : 0,
+                            record.Bank == "Metro" ? 1 : 0,
+                            record.Bank == "Monzo" ? 1 : 0,
+                            record.Bank == "RBS" ? 1 : 0,
+
+                            record.TypeOfCard == "Visa" ? 1 : 0
+                        };
+                var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
+
+                var inputs = new List<NamedOnnxValue>
+                    {
+                        NamedOnnxValue.CreateFromTensor("float_input", inputTensor)
+                    };
+
+                string predictionResult;
+                using (var results = _session.Run(inputs))
+                {
+                    var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
+                    predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
+                }
+
+                predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
+            };
+
+            //int pageSize = 10;
+            //var OrderData = new OrdersViewModel()
+            //{
+            //    Orders = (Order)_repo.Orders
+            //        .Skip((pageNum - 1) * pageSize)
+            //        .Take(pageSize),
+
+            //    PaginationInfo = new PaginationInfo
+            //    {
+            //        CurrentPage = pageNum,
+            //        ItemsPerPage = pageSize,
+            //        TotalItems = _repo.Products.Count()
+            //    }
+
+            //};
+            return View(predictions);
+
+        }
+
+
+
 
 
 
@@ -230,25 +273,7 @@ namespace Legos.Controllers
             return RedirectToAction("AdminUsers");
         }
 
-        public IActionResult AdminReviewOrders(int pageNum)
-        {
-            int pageSize = 10;
-            var OrderData = new OrdersViewModel()
-            {
-                Orders = _repo.Orders
-                    .Skip((pageNum - 1) * pageSize)
-                    .Take(pageSize),
-
-                PaginationInfo = new PaginationInfo
-                {
-                    CurrentPage = pageNum,
-                    ItemsPerPage = pageSize,
-                    TotalItems = _repo.Products.Count()
-                }
-
-            };
-            return View(OrderData);
-        }
+        
 
         public IActionResult AdminProducts(int pageNum)
         {

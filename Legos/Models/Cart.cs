@@ -5,7 +5,7 @@ namespace Legos.Models;
 public class Cart
 {
     public List<CartLine> Lines { get; set; } = new List<CartLine>();
-    public void AddItem(Product p, int quantity)
+    public virtual void AddItem(Product p, int quantity)
     {
         CartLine? Line = Lines
             .Where(x => x.Product.ProductId == p.ProductId)
@@ -25,10 +25,10 @@ public class Cart
         }
     }
 
-    public void RemoveLine(Product p) => Lines.RemoveAll(x => x.Product.ProductId == p.ProductId);
+    public virtual void RemoveLine(Product p) => Lines.RemoveAll(x => x.Product.ProductId == p.ProductId);
 
-    public void Clear() => Lines.Clear();
-    public Decimal CalculateTotal() => (decimal)Lines.Sum(x => x.Product.Price * x.Quantity);
+    public virtual void Clear() => Lines.Clear();
+    public decimal CalculateTotal() => (decimal)Lines.Sum(x => x.Product.Price * x.Quantity);
     public class CartLine
     {
         public int CartLineId { get; set; }
