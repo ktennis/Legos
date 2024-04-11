@@ -32,6 +32,7 @@ namespace Legos.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly AurorasBricksContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -39,7 +40,8 @@ namespace Legos.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            AurorasBricksContext context)
+            AurorasBricksContext context,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +50,7 @@ namespace Legos.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _context = context;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -168,6 +171,12 @@ namespace Legos.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                if (!await _roleManager.RoleExistsAsync("User"))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole("User"));
+                }
+
+                await _userManager.AddToRoleAsync(user, "User");
 
                 if (result.Succeeded)
                 {

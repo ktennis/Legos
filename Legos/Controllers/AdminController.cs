@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Legos.Controllers
 {
-    //[Authorize(Roles = "ADMINISTRATOR")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private ILegosRepository _repo;
