@@ -9,13 +9,230 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/dataSources/22fc6d85-3d53-45ce-b33e-772d3d8b20c2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/AccessDenied.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/AccessDenied.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ConfirmEmail.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ExternalLogin.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ExternalLogin.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ForgotPassword.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Lockout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Lockout.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Login.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/LoginWith2fa.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Logout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Logout.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Email.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Email.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ManageNavPages.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResetPassword.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResetPassword.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/_StatusMessage.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Account/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Error.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/Error.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Areas/Identity/Pages/_ViewStart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Components/ProductTypesViewComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Components/productCategoryViewComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Controllers/HomeController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Data/ApplicationDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Fraud.onnx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Infastructure/PaginationTagHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Infastructure/SessionExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Infastructure/UrlExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Legos.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Migrations/20240409172634_CreateIdentitySchema.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Migrations/20240409172634_CreateIdentitySchema.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetRole.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetRoleClaim.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserClaim.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserLogin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserToken.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AurorasBricksContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Cart.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/CheckoutFraud.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Customer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ErrorViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ILegosRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/LineItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Order.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ViewModels/CustomerListViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ViewModels/PaginationInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ViewModels/ProductListViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Pages/Cart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Pages/Cart.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Pages/_CartLayout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Pages/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Pages/_ViewStart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Properties/ServiceDependencies/AurorasBricks1-13 - Web Deploy/profile.arm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Properties/launchSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Properties/serviceDependencies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Properties/serviceDependencies.local.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Services/AuthMessageSenderOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Services/EmailSender.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddProduct.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminIndex.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminReviewOrders.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/DeleteConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/About.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/CheckoutFraud.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/OrderConfirmation.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminPrivacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/ProductDetail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProductDetail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Products.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProductsView.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/Components/ProductTypes/Default.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/Components/productCategory/Default.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/Error.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/ProductSummary.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_AdminLayout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_AdminLayout.cshtml.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_CookieConsentPartial.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_Layout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_LoginPartial.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/_ViewStart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/fraudIntexModel.onnx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/Screenshot 2024-04-08 123458.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/auroras_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/favicon1.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/js/site.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/lib/qrcode/qrcode.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/shopping_cart.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,27 +250,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Legos: http.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Legos: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/Users/zachhansen/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/zachhansen/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/zachhansen/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Legos: http">
     <configuration name="Legos: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Legos/Legos.csproj" />
@@ -100,6 +317,7 @@
       <workItem from="1712759856983" duration="9247000" />
       <workItem from="1712769191060" duration="4604000" />
       <workItem from="1712774670638" duration="11517000" />
+      <workItem from="1712845354950" duration="2572000" />
     </task>
     <servers />
   </component>
@@ -135,19 +353,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Legos/Controllers/AdminController.cs</url>
-          <line>203</line>
-          <properties documentPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" initialLine="168" containingFunctionPresentation="Method 'DeleteProduct'">
-            <startOffsets>
-              <option value="5680" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5681" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

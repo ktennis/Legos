@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@* @model ProductListViewModel *@
+@model Product
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Product Detail</title>
+    <link rel="stylesheet" href="~/css/site.css"> <!-- Include your CSS file here -->
+    </head>
+<body>
+<h2 class="ribeye-regular">@Model.Name</h2>
+    <br /> 
+    <div class="product-container2">
+        <div>
+            <img src="@Model.ImgLink" alt="@Model.Name" class="product-image2"/>
+        </div>
+
+        <div class="product-details-container">
+            <div class="product-description2">
+                <h4 class="ribeye-regular">Description:</h4>
+                <p>@Model.Description</p>
+                <!-- Add more details as needed -->
+            </div>
+            <div class="product-price">
+                <p>Price: $@Model.Price</p>
+                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+<!-- You can add more buttons or actions related to the product here -->
+
+</body>
+</html>
