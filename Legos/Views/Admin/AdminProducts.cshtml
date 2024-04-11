@@ -48,7 +48,8 @@
                 <td class="product-text Montserrat-font">@p.Description</td>
                 <td class="product-text Montserrat-font">@p.Category</td>
                 <td class="product-text Montserrat-font">
-                    <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@p.ProductId">Edit</a> | Delete
+                    <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@p.ProductId">Edit</a> | 
+                    <a asp-controller="Admin" asp-action="DeleteConfirmation" asp-route-id="@p.ProductId">Delete</a>
                 </td>
             </tr>
         }

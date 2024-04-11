@@ -77,18 +77,56 @@ namespace Legos.Controllers
         [HttpGet]
         public IActionResult EditUser(int id) // get the info for the edits and go back to form to edit them
         {
-            var recordToEdit = _repo.Customers
-                .Single(x => x.CustomerId == id);
-            
-            return View("AddUser", recordToEdit);
+            var UserToEdit = _repo.Customers.FirstOrDefault(x => x.CustomerId == id);
+            if (UserToEdit != null)
+            {
+                //ViewBag.Categories = _repo.Categories.OrderBy(x => x.CategoryName).ToList();
+                return View("AddUser", UserToEdit);
+            }
+            return RedirectToAction("AdminUsers");
         }
         
         [HttpPost]
         public IActionResult EditUser(Customer updatedInfo) //save the updated form. return to table
         {
-            // _repo.Update(updatedInfo);
-            // _repo.SaveChanges();
+            _repo.EditUser(updatedInfo);
 
+            return RedirectToAction("AdminUsers");
+        }
+        
+        [HttpGet]
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult AddUser(Customer cust)
+        {
+            _repo.AddUse(cust);
+            return View("UserConfirmation");
+        }
+        
+        [HttpGet]
+        public IActionResult DeleteUserConfirmation(int id)
+        {
+            var UserToDelete = _repo.Customers.FirstOrDefault(x => x.CustomerId == id);
+            if (UserToDelete == null)
+            {
+                return NotFound();
+            }
+
+            return View(UserToDelete);
+        }
+
+        public IActionResult DeleteUse(int id)
+        {
+            var UserToDelete = _repo.Customers.FirstOrDefault(x => x.CustomerId == id);
+            if (UserToDelete != null)
+            {
+                //ViewBag.Categories = _repo.Categories.OrderBy(x => x.CategoryName).ToList();
+                _repo.DeleteUse(UserToDelete);
+            }
             return RedirectToAction("AdminUsers");
         }
 
@@ -96,11 +134,7 @@ namespace Legos.Controllers
         {
             return View();
         }
-
-        public IActionResult AddUser()
-        {
-            return View();
-        }
+        
         public IActionResult AdminProducts(int pageNum)
         {
             int pageSize = 10;
@@ -121,14 +155,6 @@ namespace Legos.Controllers
             return View(ProductData);
         }
         
-        // [HttpGet]
-        // public IActionResult EditProduct(int id) // get the info for the edits and go back to form to edit them
-        // {
-        //     var recordToEdit = _repo.Products
-        //         .Single(x => x.ProductId == id);
-        //     
-        //     return RedirectToAction("AddProduct", recordToEdit);
-        // }
         [HttpGet]
         public IActionResult EditProduct(int id)
         {
@@ -160,6 +186,29 @@ namespace Legos.Controllers
         {
             _repo.AddProd(product);
             return View("Confirmation");
+        }
+        
+        [HttpGet]
+        public IActionResult DeleteConfirmation(int id)
+        {
+            var productToDelete = _repo.Products.FirstOrDefault(x => x.ProductId == id);
+            if (productToDelete == null)
+            {
+                return NotFound();
+            }
+
+            return View(productToDelete);
+        }
+
+        public IActionResult DeleteProduct(int id)
+        {
+            var prodToDelete = _repo.Products.FirstOrDefault(x => x.ProductId == id);
+            if (prodToDelete != null)
+            {
+                //ViewBag.Categories = _repo.Categories.OrderBy(x => x.CategoryName).ToList();
+                _repo.DeleteProd(prodToDelete);
+            }
+            return RedirectToAction("AdminProducts");
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

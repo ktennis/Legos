@@ -8,6 +8,10 @@ namespace Legos.Models
         public IQueryable<Customer> Customers { get; }
 
         public void EditProd(Product product);
+        public void EditUser(Customer customer);
         public void AddProd(Product product);
+        public void AddUse(Customer customer);
+        public void DeleteProd(Product product);
+        public void DeleteUse(Customer customer);
     }
 }

@@ -28,25 +28,31 @@ namespace Legos.Models
             _context.SaveChanges();
         }
         
-        // public void EditProd(Product product)
-        // {
-        //     var existingProduct = _context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
-        //     if (existingProduct != null)
-        //     {
-        //         existingProduct.Name = product.Name;
-        //         //saving the rest of the fields
-        //         existingProduct.Year = product.Year;
-        //         existingProduct.NumParts = product.NumParts;
-        //         existingProduct.Price = product.Price;
-        //         existingProduct.ImgLink = product.ImgLink;
-        //         existingProduct.PrimaryColor = product.PrimaryColor;
-        //         existingProduct.SecondaryColor = product.SecondaryColor;
-        //         existingProduct.Description = product.Description;
-        //         existingProduct.Category = product.Category;
-        //
-        //         //end rest of fields
-        //         _context.SaveChanges();
-        //     }
-        // }
+        public void DeleteProd(Product prod)
+        {
+            _context.Remove(prod);
+            _context.SaveChanges();
+        }
+        
+        public void AddUse(Customer cust)
+        {
+            _context.Add(cust);
+            _context.SaveChanges();
+        }
+        
+        public void EditUser(Customer updatedproduct)
+        {
+            _context.Attach(updatedproduct);
+            _context.Entry(updatedproduct).CurrentValues.SetValues(updatedproduct);
+            _context.Entry(updatedproduct).State = EntityState.Modified;
+
+            _context.SaveChanges();
+        }
+        
+        public void DeleteUse(Customer cust)
+        {
+            _context.Remove(cust);
+            _context.SaveChanges();
+        }
     }
 }

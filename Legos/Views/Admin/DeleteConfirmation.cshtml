@@ -4,16 +4,27 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<h2 class="text-center">Are you sure you want to delete?</h2>
+@model Product
 
+<h2 class="text-center">Confirm Delete</h2>
+<h2 class="text-center">Are you sure you want to delete the product: @Model.Name?</h2>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <a asp-area="" asp-controller="Admin" asp-action="Products" class="btn btn-custom btn-cancel">Cancel</a>
-        </div>
-        <div class="col">
-            <a asp-area="" asp-controller="Admin" asp-action="Products" class="btn btn-custom btn-confirm">Confirm</a>
-        </div>
-    </div>
+    <form method="post">
+        <button type="submit" asp-action="DeleteProduct" asp-route-id="@Model.ProductId">Yes, Delete</button>
+        <button asp-action="AdminProducts">Cancel</button>
+    </form>
 </div>
+
+@* <h2 class="text-center">Are you sure you want to delete?</h2> *@
+@* *@
+@* <div class="container"> *@
+@*     <div class="row"> *@
+@*         <div class="col"> *@
+@*             <a asp-area="" asp-controller="Admin" asp-action="Products" class="btn btn-custom btn-cancel">Cancel</a> *@
+@*         </div> *@
+@*         <div class="col"> *@
+@*             <a asp-area="" asp-controller="Admin" asp-action="Products" class="btn btn-custom btn-confirm">Confirm</a> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
 
