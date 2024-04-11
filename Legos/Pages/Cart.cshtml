@@ -11,7 +11,6 @@
             <th>Product Name</th>
             <th>Quantity</th>
             <th>Price</th>
-            <th>SubTotal</th>
         </tr>
     </thead>
   <tbody>
@@ -21,16 +20,14 @@
                 <td class="text-left">@l.Product.Name</td>
                 <td class="text-center">@l.Quantity</td>
                 <td class="text-right">@l.Product.Price</td>
-                <td class="text-right">((@l.Quantity * @l.Product.Price).ToString("c"))</td>
             </tr>
         }
-
 
     </tbody>
 
     <tfoot>
         <tr>
-            <td colspan="3" class="text-right">Total:</td>
+            <td colspan="2" class="text-right">Total:</td>
             <td class="text-right">@Model.Cart?.CalculateTotal().ToString("c")</td>
         </tr>
     </tfoot>

@@ -30,6 +30,8 @@ internal class Program
         builder.Services.AddScoped<ILegosRepository, EFLegosRepository>();
 
         builder.Services.AddRazorPages();
+        builder.Services.AddDistributedMemoryCache();
+        builder.Services.AddSession();
         //Add services to the container.
         services.AddAuthentication().AddGoogle(googleOptions =>
         {
@@ -101,7 +103,7 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseCookiePolicy();
-
+        app.UseSession();
         app.UseRouting();
 
         app.UseAuthorization();
