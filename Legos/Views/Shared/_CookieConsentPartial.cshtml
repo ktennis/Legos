@@ -10,16 +10,8 @@
 {
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert" style="background-color: #F9F9F9; color: #333;">
         We pledge to align our cookie and data keeping practices with GDPR standards. <a asp-controller="Home" asp-action="Privacy">Learn More</a>.
-        <button type="button" class="accept-policy close" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
+        <button type="button" class="accept-policy close" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString" onclick="cookie_accept()">
             <span aria-hidden="true">Accept</span>
         </button>
     </div>
-    <script>
-        (function () {
-            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
-            button.addEventListener("click", function (event) {
-                document.cookie = button.dataset.cookieString;
-            }, false);
-        })();
-    </script>
 }
