@@ -1,0 +1,104 @@
+﻿﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+ @{
+     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model ProductListViewModel
+@* @model IQueryable<Product> *@
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-4 text-left">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="productTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Color Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="productTypeDropdown">
+                            <vc:product-types />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="productCategoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="productCategoryDropdown">
+                            <vc:product-category />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-4 text-center">
+            <h1 class="display-4 ribeye-regular">Products</h1>
+        </div>
+        <div class="col-md-4 text-right">
+            <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                    <!-- Add your filter icon or other elements here -->
+                </div>
+                <div class="col-auto ml-2 mt-2">
+                    <p class="mb-0">Items on Page:</p>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("AdminProductsView", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 5 })" class="mr-1">5</a>
+                </div>
+                <div class="col-auto mt-2">
+                    <span>|</span>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("AdminProductsView", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 10 })" class="mr-1">10</a>
+                </div>
+                <div class="col-auto mt-2">
+                    <span>|</span>
+                </div>
+                <div class="col-auto mt-2">
+                    <a href="@Url.Action("AdminProductsView", new { pageNum = Model.PaginationInfo.CurrentPage, pageSize = 20 })">20</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <div class="row">
+        @foreach (Product p in Model.Products)
+        {
+            <div class="col-md-6">
+                <div class="product-item">
+                    <img src="@p.ImgLink" class="product-image" />
+                    <a class="ribeye-regular .product-item product-text" href="@Url.Action("AdminProductDetail", "Admin", new { productId = p.ProductId })">@p.Name</a>
+                    @*                         <a href="@Url.Action("ProductDetail", "Home", new { productId = p.ProductId })">View Details</a> *@
+                    <p class="product-text Montserrat-font">Price: $@p.Price</p>
+@*                     <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+ *@
+                    <form asp-page="/Cart" method="post">
+                        <input type="hidden" name="productId" value="@p.ProductId" />
+                        <button type="submit" class="btn btn-cart">Add to Cart</button>
+                    </form>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@* @foreach(ProductListViewModel p in Model.Products)
+{
+    <h3>@p.ProductName</h3>
+} *@
+
+
+@* <div page-model="@Model.PaginationInfo" page-action="Products"></div>
+ *@
+<div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enables="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-4"></div> @* page-url-productType="@Model.CurrentPrimaryColor" modify tag helper phase 3*@
