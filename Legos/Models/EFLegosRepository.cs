@@ -12,7 +12,7 @@ namespace Legos.Models
         }
         public IQueryable<Product> Products => _context.Products;
         public IQueryable<Customer> Customers => _context.Customers;
-        public IQueryable<Order> Orders => _context.Orders;
+       
 
         public void AddProd(Product product)
         {
