@@ -11,14 +11,21 @@ namespace Legos.Controllers
     public class HomeController : Controller
     {
         private ILegosRepository _repo;
-
         public HomeController(ILegosRepository temp)
         {
             _repo = temp;
         }
         public IActionResult Index()
         {
-            return View();
+            if (User.IsInRole("Admin"))
+            {
+                return Redirect("~/Admin/AdminIndex");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         public IActionResult Privacy()
