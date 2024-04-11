@@ -123,13 +123,13 @@ namespace Legos.Controllers
         //    return View(ProductData);
 
         //}
-        public IActionResult Products(string productName, int pageNum, int pageSize = 5)
+        public IActionResult Products(string productTypes, int pageNum, int pageSize = 5)
         {
             var ProductData = new ProductListViewModel
             {
                 Products = _repo.Products
                     .Skip((pageNum - 1) * pageSize)
-                    .Where(x => x.Name == productName || productName == null)
+                    //.Where(x => x.Name == productName || productName == null)
                     .Take(pageSize),
 
                 PaginationInfo = new PaginationInfo

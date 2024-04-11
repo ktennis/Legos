@@ -2,19 +2,19 @@
 using Legos.Models;
 namespace Legos.Components
 {
-    public class ProductTypesViewComponent : ViewComponent
+    public class productCategoryViewComponent : ViewComponent
     {
         private ILegosRepository _legoRepo;
-        public ProductTypesViewComponent(ILegosRepository temp) 
+        public productCategoryViewComponent(ILegosRepository temp)
         {
             _legoRepo = temp;
         }
         public IViewComponentResult Invoke()
         {
-            var productTypes = _legoRepo.Products
-                 .Select(p => p.PrimaryColor)
+            var productCat = _legoRepo.Products
+                 .Select(p => p.Category)
                 .Distinct();
-            return View(productTypes);
+            return View(productCat);
 
         }
     }
