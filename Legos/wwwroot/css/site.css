@@ -174,7 +174,7 @@ form button[type="submit"]:hover {
     display: flex; /* Use flexbox layout */
     flex-direction: column; /* Stack items vertically */
     justify-content: space-between; /* Align items with space between them */
-    height: 320px;
+    height: 340px;
     max-width: 100%; /* Ensure the product item doesn't overflow its container */
     margin-bottom: 20px; /* Adjust spacing between product items */
     border: 1px solid #ccc; /* Add border with gray color */
