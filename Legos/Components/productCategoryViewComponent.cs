@@ -11,6 +11,8 @@ namespace Legos.Components
         }
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedProductCat = RouteData?.Values["productCat"];
+
             var productCat = _legoRepo.Products
                  .Select(p => p.Category)
                 .Distinct();

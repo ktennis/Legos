@@ -123,28 +123,25 @@ namespace Legos.Controllers
         //    return View(ProductData);
 
         //}
-        public IActionResult Products(string productTypes, int pageNum, int pageSize = 5)
+        public IActionResult Products(string productTypes, string productCat, int pageNum, int pageSize = 5)
         {
             var ProductData = new ProductListViewModel
             {
                 Products = _repo.Products
                     .Skip((pageNum - 1) * pageSize)
-                    //.Where(x => x.Name == productName || productName == null)
+                    .Where(x => !(productTypes != null && !productTypes.Contains(x.PrimaryColor)) && (productCat == null || productCat.Contains(x.Category)))
                     .Take(pageSize),
 
                 PaginationInfo = new PaginationInfo
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = pageSize,
-                    TotalItems = _repo.Products.Count()
+                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.PrimaryColor == productTypes && x.Category == productCat).Count()
                 }
             
             };
 
-            //// Store the selected page size in session
-            //HttpContext.Session.SetInt32("PageSize", pageSize);
-
-            return View(ProductData);
+                return View(ProductData);
         }
 
         public IActionResult About()

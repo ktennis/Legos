@@ -11,6 +11,7 @@ namespace Legos.Components
         }
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedProductType = RouteData?.Values["productType"];
             var productTypes = _legoRepo.Products
                  .Select(p => p.PrimaryColor)
                 .Distinct();
