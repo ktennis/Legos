@@ -101,10 +101,9 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
         app.UseRouting();
 
         app.UseAuthorization();
-// <<<<<<< HEAD
-//         //app.MapControllerRoute("pagenumandtype", "{productName}/{pageNum}", new { Controller = "Home", action = "Index" });
-// =======
-// >>>>>>> b143756192463527780506dfcc8998a1eb2796f3
+
+        //app.MapControllerRoute("pagenumandtype", "{productName}/{pageNum}", new { Controller = "Home", action = "Index" });
+
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
