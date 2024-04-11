@@ -43,7 +43,8 @@
                 <td class="product-text Montserrat-font">@c.Age</td>
                 <td class="product-text Montserrat-font">@c.Email</td>
                 <td class="product-text Montserrat-font">
-                    <a asp-controller="Admin" asp-action="EditUser" asp-route-id="@c.CustomerId">Edit</a> | Delete
+                    <a asp-controller="Admin" asp-action="EditUser" asp-route-id="@c.CustomerId">Edit</a> | 
+                    <a asp-controller="Admin" asp-action="DeleteUserConfirmation" asp-route-id="@c.CustomerId">Delete</a>
                 </td>
             </tr>
         }
