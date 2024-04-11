@@ -21,10 +21,9 @@
 <body>
     @if (User.IsInRole("User") && Model.RecommendedProduct1 != null)
     {
-        <h3>Put personalized model results here for each user</h3>
 
         <div class="container">
-            <h2 class="mt-5">Recommended items:</h2>
+            <h2 class="mt-5 mb-3">Recommended items:</h2>
             <div class="row justify-content-center">
                     @if (Model.RecommendedProduct1 != null)
                     {
