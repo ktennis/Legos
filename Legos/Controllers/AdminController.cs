@@ -144,7 +144,7 @@ namespace Legos.Controllers
                     predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
                 }
 
-                predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
+                predictions.Add(new OrdersViewModel { Orders = (IQueryable<Order>)record, Prediction = predictionResult });
             };
             return View(predictions);
 
