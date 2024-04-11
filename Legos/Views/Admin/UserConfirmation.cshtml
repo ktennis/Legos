@@ -1,11 +1,15 @@
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row">
-    <h2>New User Has Been Added!</h2>
+    <h2 class="ribeye-regular">New User Has Been Added!</h2>
     <br /><br />
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-    <br />
-    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminUsers">View List</a>
+    <div>
+        <a class="btn btn-cart" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </div>
+    <br /><br/><br/>
+    <div>
+        <a class="btn btn-cart" asp-area="" asp-controller="Admin" asp-action="AdminUsers">View List</a>
+    </div>
 </div>

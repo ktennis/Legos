@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 offset-md-4 text-center">
@@ -17,8 +18,12 @@
     </div>
 </div>
 
-<table class="table table-bordered table-striped">
-    <thead>
+<div style="overflow-x: auto">
+    <table style="overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: normal; /* Prevent text wrapping */" 
+           class="table table-bordered table-striped">
+        <thead>
         <tr>
             <th class="text-right">ProductID</th>
             <th class="text-right">Product Name</th>
@@ -32,29 +37,31 @@
             <th class="text-right">Category</th>
             <th class="text-right">Edit/Delete</th>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (Product p in Model.Products)
-        {
-            <tr>
-                <td class="product-text Montserrat-font">@p.ProductId</td>
-                <td class="product-text Montserrat-font">@p.Name</td>
-                <td class="product-text Montserrat-font">@p.Year</td>
-                <td class="product-text Montserrat-font">@p.NumParts</td>
-                <td class="product-text Montserrat-font">@p.Price</td>
-                <td class="product-text Montserrat-font">@p.ImgLink</td>
-                <td class="product-text Montserrat-font">@p.PrimaryColor</td>
-                <td class="product-text Montserrat-font">@p.SecondaryColor</td>
-                <td class="product-text Montserrat-font">@p.Description</td>
-                <td class="product-text Montserrat-font">@p.Category</td>
-                <td class="product-text Montserrat-font">
-                    <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@p.ProductId">Edit</a> | 
-                    <a asp-controller="Admin" asp-action="DeleteConfirmation" asp-route-id="@p.ProductId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+                @foreach (Product p in Model.Products)
+                {
+                    <tr>
+                        <td class="product-text Montserrat-font">@p.ProductId</td>
+                        <td class="product-text Montserrat-font">@p.Name</td>
+                        <td class="product-text Montserrat-font">@p.Year</td>
+                        <td class="product-text Montserrat-font">@p.NumParts</td>
+                        <td class="product-text Montserrat-font">@p.Price</td>
+                        <td title="Https://link" class="product-text Montserrat-font">@p.ImgLink</td>
+                        <td class="product-text Montserrat-font">@p.PrimaryColor</td>
+                        <td class="product-text Montserrat-font">@p.SecondaryColor</td>
+                        <td class="product-text Montserrat-font">@p.Description</td>
+                        <td class="product-text Montserrat-font">@p.Category</td>
+                        <td class="product-text Montserrat-font">
+                            <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@p.ProductId">Edit</a> | 
+                            <a asp-controller="Admin" asp-action="DeleteConfirmation" asp-route-id="@p.ProductId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+</div>
+
 
 <div page-model="@Model.PaginationInfo" page-action="AdminProducts" page-classes-enables="true" page-class="btn"
      page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
