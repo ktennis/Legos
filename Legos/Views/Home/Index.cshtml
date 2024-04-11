@@ -19,9 +19,65 @@
 
 
 <body>
-    @if (User.IsInRole("User"))
+    @if (User.IsInRole("User") && Model.RecommendedProduct1 != null)
     {
         <h3>Put personalized model results here for each user</h3>
+
+        <div class="container">
+            <h2 class="mt-5">Recommended items:</h2>
+            <div class="row justify-content-center">
+                    @if (Model.RecommendedProduct1 != null)
+                    {
+                        <div class="col">
+                            <div class="product-item">
+                                <img class="product-image" src="@Model.RecommendedProduct1.ImgLink" alt="Exotic Peacock">
+                                <h3 class="product-text Montserrat-font">@Model.RecommendedProduct1.Name</h3>
+                                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.RecommendedProduct2 != null)
+                    {
+                        <div class="col">
+                            <div class="product-item">
+                                <img class="product-image" src="@Model.RecommendedProduct2.ImgLink" alt="Exotic Peacock">
+                                <h3 class="product-text Montserrat-font">@Model.RecommendedProduct2.Name</h3>
+                                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.RecommendedProduct3 != null)
+                    {
+                        <div class="col">
+                            <div class="product-item">
+                                <img class="product-image" src="@Model.RecommendedProduct3.ImgLink" alt="Exotic Peacock">
+                                <h3 class="product-text Montserrat-font">@Model.RecommendedProduct3.Name</h3>
+                                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.RecommendedProduct4 != null)
+                    {
+                        <div class="col">
+                            <div class="product-item">
+                                <img class="product-image" src="@Model.RecommendedProduct4.ImgLink" alt="Exotic Peacock">
+                                <h3 class="product-text Montserrat-font">@Model.RecommendedProduct4.Name</h3>
+                                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.RecommendedProduct5 != null)
+                    {
+                        <div class="col">
+                            <div class="product-item">
+                                <img class="product-image" src="@Model.RecommendedProduct5.ImgLink" alt="Exotic Peacock">
+                                <h3 class="product-text Montserrat-font">@Model.RecommendedProduct5.Name</h3>
+                                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            </div>
+                        </div>
+                    }
+            </div>
+        </div>
     }
     else
     {

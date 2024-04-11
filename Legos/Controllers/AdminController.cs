@@ -57,98 +57,98 @@ namespace Legos.Controllers
             return View();
         }
 
-        public IActionResult AdminReviewOrders()
-        {
+        //public IActionResult AdminReviewOrders()
+        //{
 
 
-            var records = _repo.Orders
-                .OrderByDescending(o => o.Date)
-                .Take(20)
-                .ToList();
-            var predictions = new List<OrdersViewModel>();
+        //    var records = _repo.Orders
+        //        .OrderByDescending(o => o.Date)
+        //        .Take(20)
+        //        .ToList();
+        //    var predictions = new List<OrdersViewModel>();
 
 
-            var class_type_dict = new Dictionary<int, string>
-            {
-                { 0, "Not Fraud"},
-                {1, "Fraud" }
+        //    var class_type_dict = new Dictionary<int, string>
+        //    {
+        //        { 0, "Not Fraud"},
+        //        {1, "Fraud" }
 
-            };
+        //    };
 
-            foreach (var record in records)
-            {
-                var january1_2022 = new DateTime(2022, 1, 1);
+        //    foreach (var record in records)
+        //    {
+        //        var january1_2022 = new DateTime(2022, 1, 1);
 
-                // Parse the date string to a DateTime with the specified format
-                DateTime date = DateTime.ParseExact(record.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+        //        // Parse the date string to a DateTime with the specified format
+        //        DateTime date = DateTime.ParseExact(record.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
-                var daysSinceJan12022 = Math.Abs((date - january1_2022).Days);
-                // Use daysSinceJan12022 as neede
+        //        var daysSinceJan12022 = Math.Abs((date - january1_2022).Days);
+        //        // Use daysSinceJan12022 as neede
 
 
-                float amount = float.Parse(record.Amount);
+        //        float amount = float.Parse(record.Amount);
 
-                var input = new List<float>
-                    {
-                        (float)record.CustomerId,
-                        (float)record.Time,
-                        amount,
-                        daysSinceJan12022,
+        //        var input = new List<float>
+        //            {
+        //                (float)record.CustomerId,
+        //                (float)record.Time,
+        //                amount,
+        //                daysSinceJan12022,
 
-                        //dummy codes
+        //                //dummy codes
 
-                        record.DayOfWeek == "Mon" ? 1 : 0,
-                        record.DayOfWeek == "Sat" ? 1 : 0,
-                        record.DayOfWeek == "Sun" ? 1 : 0,
-                        record.DayOfWeek == "Thu" ? 1 : 0,
-                        record.DayOfWeek == "Tue" ? 1 : 0,
-                        record.DayOfWeek == "Wed" ? 1 : 0,
+        //                record.DayOfWeek == "Mon" ? 1 : 0,
+        //                record.DayOfWeek == "Sat" ? 1 : 0,
+        //                record.DayOfWeek == "Sun" ? 1 : 0,
+        //                record.DayOfWeek == "Thu" ? 1 : 0,
+        //                record.DayOfWeek == "Tue" ? 1 : 0,
+        //                record.DayOfWeek == "Wed" ? 1 : 0,
 
-                        record.EntryMode == "Pin" ? 1 : 0,
-                        record.EntryMode == "Tap" ? 1 : 0,
+        //                record.EntryMode == "Pin" ? 1 : 0,
+        //                record.EntryMode == "Tap" ? 1 : 0,
 
-                        record.TypeOfTransaction == "Online" ? 1 : 0,
-                        record.TypeOfTransaction == "POS" ? 1 : 0,
+        //                record.TypeOfTransaction == "Online" ? 1 : 0,
+        //                record.TypeOfTransaction == "POS" ? 1 : 0,
 
-                        record.CountryOfTransaction == "India" ? 1 : 0,
-                        record.CountryOfTransaction == "Russia" ? 1 : 0,
-                        record.CountryOfTransaction == "USA" ? 1 : 0,
-                        record.CountryOfTransaction == "United Kingdom" ? 1 : 0,
+        //                record.CountryOfTransaction == "India" ? 1 : 0,
+        //                record.CountryOfTransaction == "Russia" ? 1 : 0,
+        //                record.CountryOfTransaction == "USA" ? 1 : 0,
+        //                record.CountryOfTransaction == "United Kingdom" ? 1 : 0,
 
-                        record.ShippingAddress == "India" ? 1 : 0,
-                        record.ShippingAddress == "Russia" ? 1 : 0,
-                        record.ShippingAddress == "USA" ? 1 : 0,
-                        record.ShippingAddress == "United Kingdom" ? 1 : 0,
+        //                record.ShippingAddress == "India" ? 1 : 0,
+        //                record.ShippingAddress == "Russia" ? 1 : 0,
+        //                record.ShippingAddress == "USA" ? 1 : 0,
+        //                record.ShippingAddress == "United Kingdom" ? 1 : 0,
 
-                        record.Bank == "HSBC" ? 1 : 0,
-                        record.Bank == "Halifax" ? 1 : 0,
-                        record.Bank == "Lloyds" ? 1 : 0,
-                        record.Bank == "Metro" ? 1 : 0,
-                        record.Bank == "Monzo" ? 1 : 0,
-                        record.Bank == "RBS" ? 1 : 0,
+        //                record.Bank == "HSBC" ? 1 : 0,
+        //                record.Bank == "Halifax" ? 1 : 0,
+        //                record.Bank == "Lloyds" ? 1 : 0,
+        //                record.Bank == "Metro" ? 1 : 0,
+        //                record.Bank == "Monzo" ? 1 : 0,
+        //                record.Bank == "RBS" ? 1 : 0,
 
-                        record.TypeOfCard == "Visa" ? 1 : 0
-                };
-                var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
+        //                record.TypeOfCard == "Visa" ? 1 : 0
+        //        };
+        //        var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
 
-                var inputs = new List<NamedOnnxValue>
-                    {
-                        NamedOnnxValue.CreateFromTensor("float-input", inputTensor)
-                    };
+        //        var inputs = new List<NamedOnnxValue>
+        //            {
+        //                NamedOnnxValue.CreateFromTensor("float-input", inputTensor)
+        //            };
 
-                string predictionResult;
-                using (var results = _session.Run(inputs))
+        //        string predictionResult;
+        //        using (var results = _session.Run(inputs))
 
-                {
-                    var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
-                    predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
-                }
+        //        {
+        //            var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
+        //            predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
+        //        }
 
-                predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
-            };
-            return View(predictions);
+        //        predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
+        //    };
+        //    return View(predictions);
 
-        }
+        //}
     
 
 

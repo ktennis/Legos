@@ -24,8 +24,7 @@ namespace Legos.Controllers
         {
 
             //var user = await GetCurrentUserAsync();
-            var userName = User.Identity.Name;
-            var user = _repo.Customers.FirstOrDefault(c => c.Email == userName);
+            
             if (User.IsInRole("Admin"))
             {
                 return Redirect("~/Admin/AdminIndex");
@@ -34,37 +33,63 @@ namespace Legos.Controllers
             {
                 if (User != null && User.IsInRole("User"))
                 {
-                    var customer = _repo.Customers.FirstOrDefault(c => c.Email == user.Email);
-
-                    var mostRecentTransaction = _repo.Orders
-                        .Where(o => o.CustomerId == customer.CustomerId)
-                        .OrderByDescending(o => o.Date)
+                    var userName = User.Identity.Name;
+                    var customerId = _repo.Customers
+                        .Where(c => c.Email == userName)
+                        .Select(c => c.CustomerId)
                         .FirstOrDefault();
 
-                    if (mostRecentTransaction != null)
+                    int limit = 1;
+                    var mostRecentTransaction = _repo.Orders
+                        .Where(o => o.CustomerId == customerId)
+                        .OrderByDescending(o => o.TransactionId)
+                        .Take(limit)
+                        .Select(o => o.TransactionId)
+                        .FirstOrDefault();
+
+                    if (mostRecentTransaction == null || mostRecentTransaction == 0)
+                    {
+                        return View();
+                        
+                    }
+                    else
                     {
                         // Get the product ID from line items of the most recent transaction
                         var productId = _repo.LineItems
-                            .Where(li => li.TransactionId == mostRecentTransaction.TransactionId)
+                            .Where(li => li.TransactionId == mostRecentTransaction)
+                            .Take(limit)
                             .Select(li => li.ProductId)
                             .FirstOrDefault();
 
                         // Get the product information
-                        var productInfo = _repo.Products
-                            .Where(p => p.ProductId == productId)
-                            .Select(p => new
+                        var product = _repo.Products.FirstOrDefault(p => p.ProductId == productId);
+
+                        if (product == null)
+                        {
+                            return View();
+                        }
+
+                        var recommendedProducts = new List<Product>();
+
+                        foreach (var recId in new[] { product.Rec1, product.Rec2, product.Rec3, product.Rec4, product.Rec5 })
+                        {
+                            var recommendedProduct = _repo.Products.FirstOrDefault(p => p.ProductId == recId);
+                            if (recommendedProduct != null)
                             {
-                                p.rec_1,
-                                p.rec_2,
-                                p.rec_3,
-                                p.rec_4,
-                                p.rec_5
-                            })
-                            .FirstOrDefault();
-                    }
-                    else
-                    {
-                        // Handle case where there are no transactions for the customer
+                                recommendedProducts.Add(recommendedProduct);
+                            }
+                        }
+
+                        var viewModel = new ProductDetailsViewModel
+                        {
+                            RecommendedProduct1 = recommendedProducts.ElementAtOrDefault(0),
+                            RecommendedProduct2 = recommendedProducts.ElementAtOrDefault(1),
+                            RecommendedProduct3 = recommendedProducts.ElementAtOrDefault(2),
+                            RecommendedProduct4 = recommendedProducts.ElementAtOrDefault(3),
+                            RecommendedProduct5 = recommendedProducts.ElementAtOrDefault(4)
+                        };
+
+                        return View(viewModel);
                     }
                 }
                 return View();
