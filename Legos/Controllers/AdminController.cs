@@ -230,11 +230,26 @@ namespace Legos.Controllers
             return RedirectToAction("AdminUsers");
         }
 
-        public IActionResult AdminReviewOrders()
+        public IActionResult AdminReviewOrders(int pageNum)
         {
-            return View();
+            int pageSize = 10;
+            var OrderData = new OrdersViewModel()
+            {
+                Orders = _repo.Orders
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _repo.Products.Count()
+                }
+
+            };
+            return View(OrderData);
         }
-        
+
         public IActionResult AdminProducts(int pageNum)
         {
             int pageSize = 10;
