@@ -9,10 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/Cart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetRoleClaim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetRoleClaim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserClaim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetUserClaim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetUserLogin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AspNetUserToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AspNetUserToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/AurorasBricksContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/AurorasBricksContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/ILegosRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/ILegosRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/LineItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/LineItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddProduct.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AddProduct.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Legos: http.executor": "Run",
+    ".NET Launch Settings Profile.Legos: http.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -96,12 +111,23 @@
       <workItem from="1712713970530" duration="8578000" />
       <workItem from="1712759856983" duration="9247000" />
       <workItem from="1712769191060" duration="4604000" />
-      <workItem from="1712774670638" duration="1129000" />
+      <workItem from="1712774670638" duration="11517000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -110,18 +136,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml</url>
-          <line>19</line>
-          <properties documentPath="$PROJECT_DIR$/Legos/Views/Home/Cart.cshtml" initialLine="19" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
+          <url>file://$PROJECT_DIR$/Legos/Controllers/AdminController.cs</url>
+          <line>145</line>
+          <properties documentPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" initialLine="134" containingFunctionPresentation="Method 'EditProduct'">
             <startOffsets>
-              <option value="-1" />
+              <option value="4108" />
             </startOffsets>
             <endOffsets>
-              <option value="-1" />
+              <option value="4109" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Legos/Controllers/AdminController.cs</url>
+          <line>133</line>
+          <properties documentPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" initialLine="133" containingFunctionPresentation="Method 'Edit'">
+            <startOffsets>
+              <option value="3605" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3606" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs</url>
+          <line>22</line>
+          <properties documentPath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" initialLine="21" containingFunctionPresentation="Method 'EditProd'">
+            <startOffsets>
+              <option value="615" />
+            </startOffsets>
+            <endOffsets>
+              <option value="616" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

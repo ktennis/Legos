@@ -15,37 +15,39 @@
 
 @* Add  asp-for="" for each label  *@
 <form method="post">
-    <label class="ribeye-regular">Product Name:</label><br />
-    <input asp-for="Name" required /> <br/><br/>
+    <input type="hidden" asp-for="ProductId" />
 
-    <label class="ribeye-regular">Year:</label><br />
-    <input asp-for="Year" required /> <br/><br/>
+    <label class="ribeye-regular">Product Name:</label><br/>
+    <input asp-for="Name" required/> <br/><br/>
 
-    <label class="ribeye-regular">Number of Parts:</label><br />
-    <input asp-for="NumParts" required /> <br/><br/>
+    <label class="ribeye-regular">Year:</label><br/>
+    <input asp-for="Year" required/> <br/><br/>
 
-    <label class="ribeye-regular">Price:</label><br />
-    <input asp-for="Price" /> <br/><br/>
+    <label class="ribeye-regular">Number of Parts:</label><br/>
+    <input asp-for="NumParts" required/> <br/><br/>
 
-    <label class="ribeye-regular">Image Link:</label><br />
-    <input asp-for="ImgLink" /> <br/><br/>
+    <label class="ribeye-regular">Price:</label><br/>
+    <input asp-for="Price"/> <br/><br/>
 
-    <label class="ribeye-regular">Primary Color:</label><br />
+    <label class="ribeye-regular">Image Link:</label><br/>
+    <input asp-for="ImgLink"/> <br/><br/>
+
+    <label class="ribeye-regular">Primary Color:</label><br/>
     <select asp-for="PrimaryColor" required>
-            <option value="Grey">Grey</option>
-            <option value="Black">Black</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Tan">Tan</option>
-            <option value="Brown">Brown</option>
-            <option value="White">White</option>
-            <option value="Green">Green</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Pink">Pink</option>
-            <option value="Orange">Orange</option>
-       </select><br /><br />
+        <option value="Grey">Grey</option>
+        <option value="Black">Black</option>
+        <option value="Blue">Blue</option>
+        <option value="Red">Red</option>
+        <option value="Tan">Tan</option>
+        <option value="Brown">Brown</option>
+        <option value="White">White</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Pink">Pink</option>
+        <option value="Orange">Orange</option>
+    </select><br/><br/>
 
-    <label class="ribeye-regular">Secondary Color:</label><br />
+    <label class="ribeye-regular">Secondary Color:</label><br/>
     <select asp-for="SecondaryColor" required>
         <option value="Grey">Grey</option>
         <option value="Black">Black</option>
@@ -58,38 +60,38 @@
         <option value="Yellow">Yellow</option>
         <option value="Pink">Pink</option>
         <option value="Orange">Orange</option>
-</select><br /><br />
+    </select><br/><br/>
 
-    <label class="ribeye-regular">Description:</label><br />
-    <input asp-for="Description" required /> <br/><br/>
+    <label class="ribeye-regular">Description:</label><br/>
+    <input asp-for="Description" required/> <br/><br/>
 
-    <label class="ribeye-regular">Category:</label><br />
+    <label class="ribeye-regular">Category:</label><br/>
     <select asp-for="Category" required>
-            <option value="DC">DC</option>
-            <option value="HarryPotter">Harry Potter</option>
-            <option value="StarWars">Star Wars</option>
-            <option value="Flight">Flight</option>
-            <option value="Personal">Personal</option>
-            <option value="Vehicle">Vehicle</option>
-            <option value="Car">Car</option>
-            <option value="Promotional">Promotional</option>
-            <option value="Motorbike">Motorbike</option>
-            <option value="Person">Person</option>
-            <option value="Game">Game</option>
-            <option value="Minifig">Minifig</option>
-            <option value="Food">Food</option>
-            <option value="Train">Train</option>
-            <option value="Animal">Animal</option>
-            <option value="Building">Building</option>
-            <option value="Part">Part</option>
-            <option value="Energy">Energy</option>
-            <option value="Character">Character</option>
-            <option value="Disney">Disney</option>
-            <option value="Floral">Floral</option>
-            <option value="Colorful">Colorful</option>
-            <option value="Farm">Farm</option>
-            <option value="Structure">Structure</option>
-    </select><br /><br /> 
+        <option value="DC">DC</option>
+        <option value="HarryPotter">Harry Potter</option>
+        <option value="StarWars">Star Wars</option>
+        <option value="Flight">Flight</option>
+        <option value="Personal">Personal</option>
+        <option value="Vehicle">Vehicle</option>
+        <option value="Car">Car</option>
+        <option value="Promotional">Promotional</option>
+        <option value="Motorbike">Motorbike</option>
+        <option value="Person">Person</option>
+        <option value="Game">Game</option>
+        <option value="Minifig">Minifig</option>
+        <option value="Food">Food</option>
+        <option value="Train">Train</option>
+        <option value="Animal">Animal</option>
+        <option value="Building">Building</option>
+        <option value="Part">Part</option>
+        <option value="Energy">Energy</option>
+        <option value="Character">Character</option>
+        <option value="Disney">Disney</option>
+        <option value="Floral">Floral</option>
+        <option value="Colorful">Colorful</option>
+        <option value="Farm">Farm</option>
+        <option value="Structure">Structure</option>
+    </select><br/><br/>
 
     <button type="submit" class="ribeye-regular btn btn-add">Submit New Product</button>
 </form>

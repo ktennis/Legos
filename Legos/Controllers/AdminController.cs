@@ -121,26 +121,45 @@ namespace Legos.Controllers
             return View(ProductData);
         }
         
+        // [HttpGet]
+        // public IActionResult EditProduct(int id) // get the info for the edits and go back to form to edit them
+        // {
+        //     var recordToEdit = _repo.Products
+        //         .Single(x => x.ProductId == id);
+        //     
+        //     return RedirectToAction("AddProduct", recordToEdit);
+        // }
         [HttpGet]
-        public IActionResult EditProduct(int id) // get the info for the edits and go back to form to edit them
+        public IActionResult EditProduct(int id)
         {
-            var recordToEdit = _repo.Products
-                .Single(x => x.ProductId == id);
-            
-            return View("AddProduct", recordToEdit);
+            var taskToEdit = _repo.Products.FirstOrDefault(x => x.ProductId == id);
+            if (taskToEdit != null)
+            {
+                //ViewBag.Categories = _repo.Categories.OrderBy(x => x.CategoryName).ToList();
+                return View("AddProduct", taskToEdit);
+            }
+            return RedirectToAction("AdminProducts");
         }
         
         [HttpPost]
         public IActionResult EditProduct(Product updatedInfo) //save the updated form. return to table
         {
-            // _repo.Update(updatedInfo);
-            // _repo.SaveChanges();
+            _repo.EditProd(updatedInfo);
 
             return RedirectToAction("AdminProducts");
         }
+        
+        [HttpGet]
         public IActionResult AddProduct()
         {
             return View();
+        }
+        
+        [HttpPost]
+        public IActionResult AddProduct(Product product)
+        {
+            _repo.AddProd(product);
+            return View("Confirmation");
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -148,8 +148,6 @@ public partial class AurorasBricksContext : DbContext
         {
             entity.ToTable("products");
 
-            entity.HasIndex(e => e.ProductId, "IX_products_product_ID").IsUnique();
-
             entity.Property(e => e.ProductId).HasColumnName("product_ID");
             entity.Property(e => e.Category).HasColumnName("category");
             entity.Property(e => e.Description).HasColumnName("description");
