@@ -11,6 +11,7 @@
             <th>Product Name</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th></th>
         </tr>
     </thead>
   <tbody>
@@ -20,13 +21,14 @@
                 <td class="text-left">@l.Product.Name</td>
                 <td class="text-center">@l.Quantity</td>
                 <td class="text-right">$@l.Product.Price</td>
-                  <td> <form asp-page-handler="Remove" method="post">
+                  <td> 
+                      <form asp-page-handler="Remove" method="post">
                         <input type="hidden" name="ProductId" value="@l.Product.ProductId" />
                         <input type="hidden" name="returnUrl" value="@Model?.ReturnUrl" />
-                        <button type="submit" class="btn btn-sm btn-danger">
-                            Remove
-                        </button>
+                        <button class="btn btn-checkout" type="submit">Remove</button>
+
                     </form>
+
                 </td>
             </tr>
         }
@@ -35,8 +37,10 @@
 
     <tfoot>
         <tr>
+            <td></td>
             <td colspan="2" class="text-right">Total:</td>
             <td class="text-right">@Model.Cart?.CalculateTotal().ToString("c")</td>
+
         </tr>
     </tfoot>
 </table>
