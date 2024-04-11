@@ -23,10 +23,11 @@ public class CartModel : PageModel
     private ILegosRepository _repo;
 
     //public CartModel(ILegosRepository temp , Cart cartService)
-    public CartModel(ILegosRepository temp)
+    public CartModel(ILegosRepository temp, Cart cartService)
 
     {
         _repo = temp;
+        Cart = cartService;
     }
     public Cart? Cart { get; set; }
     public string ReturnUrl { get; set; } = "/";
@@ -50,4 +51,26 @@ public class CartModel : PageModel
 
         return RedirectToPage(new { returnUrl });
     }
+    //public IActionResult OnPostRemove(int productId, string returnUrl)
+    //{
+    //    Cart.RemoveLine(Cart.Lines.First(x => x.Product.ProductId == productId).Product);
+    //    return RedirectToPage(new { returnUrl = returnUrl });
+    //}
+    public IActionResult OnPostRemove(int productId, string returnUrl)
+    {
+        if (Cart != null && Cart.Lines.Any())
+        {
+            var productToRemove = Cart.Lines.First(x => x.Product.ProductId == productId)?.Product;
+            if (productToRemove != null)
+            {
+                Cart.RemoveLine(productToRemove);
+                HttpContext.Session.SetJson("cart", Cart);
+            }
+        }
+
+        return RedirectToPage(new { returnUrl });
+    }
+
+
+
 }

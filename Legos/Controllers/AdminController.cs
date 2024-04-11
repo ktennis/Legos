@@ -21,7 +21,7 @@ namespace Legos.Controllers
             _repo = temp;
         }
 
-        public IActionResult Privacy()
+        public IActionResult AdminPrivacy()
         {
             return View();
         }
@@ -29,24 +29,24 @@ namespace Legos.Controllers
         {
             return View();
         }
+        
+        public IActionResult AdminProductDetail(int productId)
+        {
+            var product = _repo.Products.FirstOrDefault(p => p.ProductId == productId);
+    
+            if (product == null)
+            {
+                // Handle case where product with given ID is not found
+                return RedirectToAction("AdminIndex"); // Redirect to home or appropriate page
+            }
 
-        public IActionResult ProductDetail()
-        {
-            return View();
+            return View(product);
         }
-        public IActionResult Products()
-        {
-            return View();
-        }
-        public IActionResult About()
-        {
-            return View();
-        }
-
-        public IActionResult OrderConfirmation()
-        {
-            return View();
-        }
+        
+        // public IActionResult OrderConfirmation()
+        // {
+        //     return View();
+        // }
 
         public IActionResult AdminIndex()
         {
@@ -309,6 +309,32 @@ namespace Legos.Controllers
                 _repo.DeleteProd(prodToDelete);
             }
             return RedirectToAction("AdminProducts");
+        }
+        
+        public IActionResult AdminProductsView(string productTypes, string productCat, int pageNum, int pageSize = 5)
+        {
+            var ProductData = new ProductListViewModel
+            {
+                Products = _repo.Products
+                    .Skip((pageNum - 1) * pageSize)
+                    .Where(x => !(productTypes != null && !productTypes.Contains(x.PrimaryColor)) && (productCat == null || productCat.Contains(x.Category)))
+                    .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.PrimaryColor == productTypes && x.Category == productCat).Count()
+                }
+            
+            };
+
+            return View(ProductData);
+        }
+        
+        public IActionResult AdminAbout()
+        {
+            return View();
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

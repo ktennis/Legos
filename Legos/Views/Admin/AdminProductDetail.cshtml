@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 @* @model ProductListViewModel *@
@@ -29,10 +30,7 @@
             </div>
             <div class="product-price">
                 <p>Price: $@Model.Price</p>
-                <form asp-page="/Cart" method="post">
-                    <input type="hidden" name="productId" value="@Model.ProductId" />
-                    <button type="submit" class="btn btn-cart">Add to Cart</button>
-                </form>
+                <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
             </div>
         </div>
     </div>
