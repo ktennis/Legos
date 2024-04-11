@@ -8,53 +8,33 @@
 @* @model IQueryable<Product> *@
 
 <div class="container">
-    <vc:product-types />
     <div class="row align-items-center">
         <div class="col-md-4 text-left">
-            <vc:product-types />
-            <label class="mr-2">Filter by Color:</label>
-            <select class="mr-4">
-                <option>None</option>
-                <option value="Grey">Grey</option>
-                <option value="Black">Black</option>
-                <option value="Blue">Blue</option>
-                <option value="Red">Red</option>
-                <option value="Tan">Tan</option>
-                <option value="Brown">Brown</option>
-                <option value="White">White</option>
-                <option value="Green">Green</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Pink">Pink</option>
-                <option value="Orange">Orange</option>
-            </select>
-            <label class="mr-2">Filter by Category:</label>
-            <select>
-                <option>None</option>
-                <option value="DC">DC</option>
-                <option value="HarryPotter">Harry Potter</option>
-                <option value="StarWars">Star Wars</option>
-                <option value="Flight">Flight</option>
-                <option value="Personal">Personal</option>
-                <option value="Vehicle">Vehicle</option>
-                <option value="Car">Car</option>
-                <option value="Promotional">Promotional</option>
-                <option value="Motorbike">Motorbike</option>
-                <option value="Person">Person</option>
-                <option value="Game">Game</option>
-                <option value="Minifig">Minifig</option>
-                <option value="Food">Food</option>
-                <option value="Train">Train</option>
-                <option value="Animal">Animal</option>
-                <option value="Building">Building</option>
-                <option value="Part">Part</option>
-                <option value="Energy">Energy</option>
-                <option value="Character">Character</option>
-                <option value="Disney">Disney</option>
-                <option value="Floral">Floral</option>
-                <option value="Colorful">Colorful</option>
-                <option value="Farm">Farm</option>
-                <option value="Structure">Structure</option>
-            </select>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="productTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Color Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="productTypeDropdown">
+                            <vc:product-types />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="productCategoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="productCategoryDropdown">
+                            <vc:product-category />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
         <div class="col-md-4 text-center">
             <h1 class="display-4 ribeye-regular">Products</h1>
@@ -122,4 +102,4 @@
 @* <div page-model="@Model.PaginationInfo" page-action="Products"></div>
  *@
 <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enables="true" page-class="btn"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-4"></div>
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-4"></div> @* page-url-productType="@Model.CurrentPrimaryColor" modify tag helper phase 3*@
