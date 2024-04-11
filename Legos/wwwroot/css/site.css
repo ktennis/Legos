@@ -251,6 +251,8 @@ form button[type="submit"]:hover {
     margin-top: 10px;
 }
 
-
+.table-container {
+    overflow-x: auto;
+}
 
 

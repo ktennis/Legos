@@ -9,16 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cf47b93-20e8-4249-afdb-2ded37163a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/EFLegosRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Models/ILegosRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Models/ILegosRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AddUser.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminProducts.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/AdminUsers.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/DeleteConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/DeleteConfirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/Confirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/DeleteUserConfirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Admin/UserConfirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
