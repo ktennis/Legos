@@ -27,6 +27,8 @@ internal class Program
 
 
         builder.Services.AddScoped<ILegosRepository, EFLegosRepository>();
+
+        builder.Services.AddRazorPages();
         //Add services to the container.
         services.AddAuthentication().AddGoogle(googleOptions =>
         {

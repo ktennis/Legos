@@ -8,7 +8,7 @@
 <div>
     <h4>
         @Model.Name
-        <span class="badge rounded-pill bg-primary text-white float-end"><small>@Model.ProductId served</small></span>
+        <span class="badge rounded-pill bg-primary text-white float-end"><small>@Model.ProductId</small></span>
     </h4>
 
     <ul>
@@ -17,8 +17,9 @@
     </ul>
 
     <form id=@Model.ProductId method="post" asp-page="/Cart"> 
-        <input type="hidden" asp-for="@Model.ProductId"/>   
-        <button type="sumbit" class="btn-outline-success btn-sm float-end">Cart</button>
+        <input type="hidden" asp-for="@Model.ProductId"/>
+@*         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+ *@        <button type="submit" class="btn-outline-success btn-sm float-end">Cart</button>
     </form>
  
 </div>
