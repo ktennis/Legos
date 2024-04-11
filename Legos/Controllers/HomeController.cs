@@ -1,10 +1,13 @@
 using Legos.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 using Legos.Models.ViewModels;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
 
 namespace Legos.Controllers
 {
@@ -15,14 +18,55 @@ namespace Legos.Controllers
         {
             _repo = temp;
         }
-        public IActionResult Index()
+        //private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        public async Task<IActionResult> Index()
         {
+
+            //var user = await GetCurrentUserAsync();
+            var userName = User.Identity.Name;
+            var user = _repo.Customers.FirstOrDefault(c => c.Email == userName);
             if (User.IsInRole("Admin"))
             {
                 return Redirect("~/Admin/AdminIndex");
             }
             else
             {
+                if (User != null && User.IsInRole("User"))
+                {
+                    var customer = _repo.Customers.FirstOrDefault(c => c.Email == user.Email);
+
+                    var mostRecentTransaction = _repo.Orders
+                        .Where(o => o.CustomerId == customer.CustomerId)
+                        .OrderByDescending(o => o.Date)
+                        .FirstOrDefault();
+
+                    if (mostRecentTransaction != null)
+                    {
+                        // Get the product ID from line items of the most recent transaction
+                        var productId = _repo.LineItems
+                            .Where(li => li.TransactionId == mostRecentTransaction.TransactionId)
+                            .Select(li => li.ProductId)
+                            .FirstOrDefault();
+
+                        // Get the product information
+                        var productInfo = _repo.Products
+                            .Where(p => p.ProductId == productId)
+                            .Select(p => new
+                            {
+                                p.rec_1,
+                                p.rec_2,
+                                p.rec_3,
+                                p.rec_4,
+                                p.rec_5
+                            })
+                            .FirstOrDefault();
+                    }
+                    else
+                    {
+                        // Handle case where there are no transactions for the customer
+                    }
+                }
                 return View();
             }
             
