@@ -23,7 +23,7 @@ namespace Legos.Controllers
         {
             _repo = temp;
 
-            _onnxModelPath = System.IO.Path.Combine(hostEnvironement.ContentRootPath, "FraudModelDec.onnx");
+            _onnxModelPath = System.IO.Path.Combine(hostEnvironement.ContentRootPath, "FinalModel.onnx");
 
             _session = new InferenceSession(_onnxModelPath);
         }
@@ -64,25 +64,7 @@ namespace Legos.Controllers
             return View();
         }
 
-        //public IActionResult AdminReviewOrders(int pageNum)
-        //{
-        //    int pageSize = 10;
-        //    var OrderData = new OrdersViewModel()
-        //    {
-        //        Orders = _repo.Orders
-        //            .Skip((pageNum - 1) * pageSize)
-        //            .Take(pageSize),
-
-        //        PaginationInfo = new PaginationInfo
-        //        {
-        //            CurrentPage = pageNum,
-        //            ItemsPerPage = pageSize,
-        //            TotalItems = _repo.Products.Count()
-        //        }
-
-        //    };
-        //    return View(OrderData);
-        //}
+      
 
         public IActionResult AdminReviewOrders(int pageNum)
         {
@@ -94,7 +76,7 @@ namespace Legos.Controllers
             var predictions = new List<OrdersViewModel>();
             var class_type_dict = new Dictionary<int, string>
                 {
-                    { 0, "Not Fraud"},
+                    {0, "Not Fraud"},
                     {1, "Fraud" }
                 };
 
@@ -116,9 +98,9 @@ namespace Legos.Controllers
 
                 var input = new List<float>
                         {
-                            //(float)record.CustomerId,
-                            //(float)record.Time,
-                            //amount,
+
+                            (float)record.Time,
+                            amount,
                             daysSinceJan12022,
 
                             //dummy codes
@@ -172,21 +154,7 @@ namespace Legos.Controllers
                 predictions.Add(new OrdersViewModel { Orders = record, Prediction = predictionResult });
             };
 
-            //int pageSize = 10;
-            //var OrderData = new OrdersViewModel()
-            //{
-            //    Orders = (Order)_repo.Orders
-            //        .Skip((pageNum - 1) * pageSize)
-            //        .Take(pageSize),
-
-            //    PaginationInfo = new PaginationInfo
-            //    {
-            //        CurrentPage = pageNum,
-            //        ItemsPerPage = pageSize,
-            //        TotalItems = _repo.Products.Count()
-            //    }
-
-            //};
+          
             return View(predictions);
 
         }
