@@ -22,6 +22,8 @@ namespace Legos.Models
         public TimeOnly time {  get; set; }
         public string entry_mode { get; set; }
         public int amount { get; set; }
+        public SessionCart Cart { get; set; }
+        public decimal CartTotalAmount { get; set; }
         public string type_of_transaction { get; set; }
         public string bank {  get; set; }
         public string type_of_card {get; set; }

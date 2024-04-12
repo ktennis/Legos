@@ -8,6 +8,8 @@ using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
+using Microsoft.AspNetCore.Http;
+using Legos.Infastructure;
 
 namespace Legos.Controllers
 {
@@ -32,41 +34,41 @@ namespace Legos.Controllers
             }
             else
             {
-                if (User != null && User.IsInRole("User"))
-                {
-                    var customer = _repo.Customers.FirstOrDefault(c => c.Email == user.Email);
+            //    if (User != null && User.IsInRole("User"))
+            //    {
+            //        var customer = _repo.Customers.FirstOrDefault(c => c.Email == user.Email);
 
-                    var mostRecentTransaction = _repo.Orders
-                        .Where(o => o.CustomerId == customer.CustomerId)
-                        .OrderByDescending(o => o.Date)
-                        .FirstOrDefault();
+            //        var mostRecentTransaction = _repo.Orders
+            //            .Where(o => o.CustomerId == customer.CustomerId)
+            //            .OrderByDescending(o => o.Date)
+            //            .FirstOrDefault();
 
-                    if (mostRecentTransaction != null)
-                    {
-                        // Get the product ID from line items of the most recent transaction
-                        var productId = _repo.LineItems
-                            .Where(li => li.TransactionId == mostRecentTransaction.TransactionId)
-                            .Select(li => li.ProductId)
-                            .FirstOrDefault();
+            //        if (mostRecentTransaction != null)
+            //        {
+            //            // Get the product ID from line items of the most recent transaction
+            //            var productId = _repo.LineItems
+            //                .Where(li => li.TransactionId == mostRecentTransaction.TransactionId)
+            //                .Select(li => li.ProductId)
+            //                .FirstOrDefault();
 
-                        // Get the product information
-                        var productInfo = _repo.Products
-                            .Where(p => p.ProductId == productId)
-                            .Select(p => new
-                            {
-                                p.rec_1,
-                                p.rec_2,
-                                p.rec_3,
-                                p.rec_4,
-                                p.rec_5
-                            })
-                            .FirstOrDefault();
-                    }
-                    else
-                    {
-                        // Handle case where there are no transactions for the customer
-                    }
-                }
+            //            // Get the product information
+            //            var productInfo = _repo.Products
+            //                .Where(p => p.ProductId == productId)
+            //                .Select(p => new
+            //                {
+            //                    p.rec_1,
+            //                    p.rec_2,
+            //                    p.rec_3,
+            //                    p.rec_4,
+            //                    p.rec_5
+            //                })
+            //                .FirstOrDefault();
+            //        }
+            //        else
+            //        {
+            //            // Handle case where there are no transactions for the customer
+            //        }
+            //    }
                 return View();
             }
             
@@ -226,6 +228,40 @@ namespace Legos.Controllers
         {
             return View();
         }
+
+        public IActionResult CheckoutFraud()
+        {
+            var cart = GetCart(HttpContext.RequestServices); // Retrieve the cart somehow
+
+            // Calculate the total amount from the cart
+            var cartTotalAmount = cart.CalculateTotal();
+
+            // Create the CheckoutFraud model instance and populate its properties
+            var checkoutFraud = new CheckoutFraud
+            {
+                // Populate other properties as needed
+                Cart = cart,
+                CartTotalAmount = cartTotalAmount
+            };
+
+            return View(checkoutFraud);
+        }
+
+        public SessionCart GetCart(IServiceProvider services)
+        {
+            // Retrieve the session from the provided services
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()
+                                       .HttpContext?.Session;
+
+            // Get the cart from session or create a new one if it doesn't exist
+            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
+
+            // Assign the session to the cart for future updates
+            cart.Session = session;
+
+            return cart;
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
