@@ -30,7 +30,7 @@ namespace Legos.Controllers
             
             if (User.IsInRole("Admin"))
             {
-                return Redirect("~/Admin/AdminIndex");
+                return Redirect("/Admin/AdminIndex");
             }
             else
             {

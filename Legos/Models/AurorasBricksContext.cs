@@ -25,8 +25,6 @@ public partial class AurorasBricksContext : DbContext
 
     public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
 
-    public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
-
     public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
 
     public virtual DbSet<Customer> Customers { get; set; }
@@ -45,148 +43,85 @@ public partial class AurorasBricksContext : DbContext
     {
         modelBuilder.Entity<AspNetRole>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedName] IS NOT NULL)");
 
-            entity.Property(e => e.ConcurrencyStamp)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Id)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Name)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.NormalizedName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.Property(e => e.Name).HasMaxLength(256);
+            entity.Property(e => e.NormalizedName).HasMaxLength(256);
         });
 
         modelBuilder.Entity<AspNetRoleClaim>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
 
-            entity.Property(e => e.ClaimType)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ClaimValue)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Id)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.RoleId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.HasOne(d => d.Role).WithMany(p => p.AspNetRoleClaims).HasForeignKey(d => d.RoleId);
         });
 
         modelBuilder.Entity<AspNetUser>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
 
-            entity.Property(e => e.ConcurrencyStamp)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Id)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.LockoutEnd)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.NormalizedEmail)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.NormalizedUserName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.PasswordHash)
-                .HasMaxLength(128)
-                .IsUnicode(false);
-            entity.Property(e => e.PhoneNumber)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.SecurityStamp)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "AspNetUserRole",
+                    r => r.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
+                    l => l.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId");
+                        j.ToTable("AspNetUserRoles");
+                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                    });
         });
 
         modelBuilder.Entity<AspNetUserClaim>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
 
-            entity.Property(e => e.ClaimType)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ClaimValue)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Id)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserClaims).HasForeignKey(d => d.UserId);
         });
 
         modelBuilder.Entity<AspNetUserLogin>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
 
-            entity.Property(e => e.LoginProvider)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ProviderDisplayName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ProviderKey)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-        });
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
 
-        modelBuilder.Entity<AspNetUserRole>(entity =>
-        {
-            entity.HasNoKey();
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.ProviderKey).HasMaxLength(128);
 
-            entity.Property(e => e.RoleId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserLogins).HasForeignKey(d => d.UserId);
         });
 
         modelBuilder.Entity<AspNetUserToken>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
 
-            entity.Property(e => e.LoginProvider)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Name)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Value)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.Name).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserTokens).HasForeignKey(d => d.UserId);
         });
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("customer");
+            entity.HasKey(e => e.CustomerId).HasName("customer_ID");
 
+            entity.ToTable("customer");
+
+            entity.Property(e => e.CustomerId)
+                .ValueGeneratedNever()
+                .HasColumnName("customer_ID");
             entity.Property(e => e.Age).HasColumnName("age");
             entity.Property(e => e.Birthdate)
                 .HasMaxLength(50)
@@ -196,7 +131,6 @@ public partial class AurorasBricksContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("countryofresidence");
-            entity.Property(e => e.CustomerId).HasColumnName("customer_ID");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -229,10 +163,13 @@ public partial class AurorasBricksContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("orders");
+            entity.HasKey(e => e.TransactionId).HasName("transaction_ID");
 
+            entity.ToTable("orders");
+
+            entity.Property(e => e.TransactionId)
+                .ValueGeneratedNever()
+                .HasColumnName("transaction_ID");
             entity.Property(e => e.Amount).HasColumnName("amount");
             entity.Property(e => e.Bank)
                 .HasMaxLength(50)
@@ -261,7 +198,6 @@ public partial class AurorasBricksContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("shippingaddress");
             entity.Property(e => e.Time).HasColumnName("time");
-            entity.Property(e => e.TransactionId).HasColumnName("transaction_ID");
             entity.Property(e => e.Typeofcard)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -274,10 +210,13 @@ public partial class AurorasBricksContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("products");
+            entity.HasKey(e => e.ProductId).HasName("product_ID");
 
+            entity.ToTable("products");
+
+            entity.Property(e => e.ProductId)
+                .ValueGeneratedNever()
+                .HasColumnName("product_ID");
             entity.Property(e => e.Category)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -300,7 +239,6 @@ public partial class AurorasBricksContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("primarycolor");
-            entity.Property(e => e.ProductId).HasColumnName("product_ID");
             entity.Property(e => e.Rec1).HasColumnName("rec1");
             entity.Property(e => e.Rec2).HasColumnName("rec2");
             entity.Property(e => e.Rec3).HasColumnName("rec3");

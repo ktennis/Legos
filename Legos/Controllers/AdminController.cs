@@ -166,6 +166,10 @@ namespace Legos.Controllers
 
         public IActionResult AdminUsers(int pageNum)
         {
+            if (pageNum < 1)
+            {
+                pageNum = 1;
+            }
             int pageSize = 800;
             var CustomerData = new CustomerListViewModel
             {
@@ -245,6 +249,10 @@ namespace Legos.Controllers
 
         public IActionResult AdminProducts(int pageNum)
         {
+            if (pageNum < 1)
+            {
+                pageNum = 1;
+            }
             int pageSize = 10;
             var ProductData = new ProductListViewModel()
             {

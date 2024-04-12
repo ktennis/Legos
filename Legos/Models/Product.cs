@@ -5,7 +5,7 @@ namespace Legos.Models;
 
 public partial class Product
 {
-    public int? ProductId { get; set; }
+    public int ProductId { get; set; }
 
     public string? Name { get; set; }
 
