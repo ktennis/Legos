@@ -23,7 +23,7 @@ namespace Legos.Controllers
         {
             _repo = temp;
 
-            _onnxModelPath = System.IO.Path.Combine(hostEnvironement.ContentRootPath, "FinalModel.onnx");
+            _onnxModelPath = System.IO.Path.Combine(hostEnvironement.ContentRootPath, "wwwroot", "FinalModel.onnx");
 
             _session = new InferenceSession(_onnxModelPath);
         }

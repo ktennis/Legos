@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
 using Microsoft.AspNetCore.Http;
 using Legos.Infastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Legos.Controllers
 {
@@ -103,6 +104,7 @@ namespace Legos.Controllers
         {
             return View();
         }
+       
         public IActionResult Cart()
         {
             return View();
@@ -253,7 +255,7 @@ namespace Legos.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "User,Admin")]
         public IActionResult CheckoutFraud()
         {
             var cart = GetCart(HttpContext.RequestServices); // Retrieve the cart somehow
