@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Legos/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Legos/Views/Home/ProductDetail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/ProductDetail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Legos/Views/Home/Products.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Legos/Views/Home/Products.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
