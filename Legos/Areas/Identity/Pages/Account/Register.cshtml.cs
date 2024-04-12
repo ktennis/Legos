@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using SQLitePCL;
+//using SQLitePCL;
 
 namespace Legos.Areas.Identity.Pages.Account
 {
