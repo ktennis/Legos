@@ -48,7 +48,11 @@
                         <div class="product-item">
                             <img class="product-image" src="@Model.RecommendedProduct1.ImgLink" alt="Exotic Peacock">
                             <h3 class="product-text Montserrat-font">@Model.RecommendedProduct1.Name</h3>
-                            <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            @* <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a> *@
+                            <form asp-page="/Cart" method="post">
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                <button type="submit" class="btn btn-cart">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 }
@@ -58,7 +62,11 @@
                         <div class="product-item">
                             <img class="product-image" src="@Model.RecommendedProduct2.ImgLink" alt="Exotic Peacock">
                             <h3 class="product-text Montserrat-font">@Model.RecommendedProduct2.Name</h3>
-                            <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            @* <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a> *@
+                            <form asp-page="/Cart" method="post">
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                <button type="submit" class="btn btn-cart">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 }
@@ -68,7 +76,11 @@
                         <div class="product-item">
                             <img class="product-image" src="@Model.RecommendedProduct3.ImgLink" alt="Exotic Peacock">
                             <h3 class="product-text Montserrat-font">@Model.RecommendedProduct3.Name</h3>
-                            <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            @* <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a> *@
+                            <form asp-page="/Cart" method="post">
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                <button type="submit" class="btn btn-cart">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 }
@@ -78,7 +90,11 @@
                         <div class="product-item">
                             <img class="product-image" src="@Model.RecommendedProduct4.ImgLink" alt="Exotic Peacock">
                             <h3 class="product-text Montserrat-font">@Model.RecommendedProduct4.Name</h3>
-                            <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            @* <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a> *@
+                            <form asp-page="/Cart" method="post">
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                <button type="submit" class="btn btn-cart">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 }
@@ -88,7 +104,11 @@
                         <div class="product-item">
                             <img class="product-image" src="@Model.RecommendedProduct5.ImgLink" alt="Exotic Peacock">
                             <h3 class="product-text Montserrat-font">@Model.RecommendedProduct5.Name</h3>
-                            <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a>
+                            @* <a class="btn btn-cart" asp-area="" asp-controller="" asp-action="">Add to Cart</a> *@
+                            <form asp-page="/Cart" method="post">
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                <button type="submit" class="btn btn-cart">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 }
