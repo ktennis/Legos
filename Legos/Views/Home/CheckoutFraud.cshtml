@@ -10,14 +10,14 @@
     var userEmail = User.Identity?.Name;
     var customer = dbContext.Customers.FirstOrDefault(c => c.Email == userEmail);
 }
-
-<h2>Checkout Form</h2>
+<h2 class="text-center mt-2 mb-4">Checkout Form</h2>
 <form asp-action="SubmitCheckout" asp-controller="Home" method="post">
     <div class="col">
-        <p>Name: @customer?.FirstName @customer?.LastName</p>
-        <p>@Model.Cart?.CalculateTotal().ToString("c")</p>
+        <h5 m-2>Name: @customer?.FirstName @customer?.LastName</h5>
+        <h6 m-2>Total: @Model.Cart?.CalculateTotal().ToString("c")</h6>
     </div>
-
+    <div class="card">
+        <div class="card-body">
     <div class="checkout-form">
         <!-- Other form fields -->
         <div class="form-group">
@@ -37,7 +37,7 @@
                 *@                <input type="hidden" asp-for="amount" class="form-control" value="@Model.Cart?.CalculateTotal().ToString("c")" />
         </div>
         <div class="form-group">
-            <label asp-for="bank">Bank</label>
+            <label asp-for="bank">Bank:</label>
             <select id="bank" asp-for="bank" class="form-control" required>
                 <option value="" disabled selected>Select a bank</option>
                 <option value="Barclays">Barclays</option>
@@ -50,7 +50,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label asp-for="type_of_card">Card Type</label>
+            <label asp-for="type_of_card">Card Type:</label>
             <select id="type_of_card" asp-for="type_of_card" class="form-control" required>
                 <option value="" disabled selected>Select a card type</option>
                 <option value="Mastercard">Mastercard</option>
@@ -67,7 +67,7 @@
  *@                <input type="hidden" asp-for="country_of_residence" class="form-control" value="@customer?.CountryOfResidence" />
         </div>
         <div class="form-group">
-            <label asp-for="shipping_country">Shipping Country</label>
+            <label asp-for="shipping_country">Shipping Country:</label>
             <select id="shipping_country" asp-for="shipping_country" class="form-control" required>
                 <option value="" disabled selected>Select a country</option>
                 <option value="China">China</option>
@@ -100,5 +100,6 @@
                 <input type="hidden" asp-for="type_of_transaction" class="form-control" value="POS" />
             </div>        
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-add">Submit</button>
 </form>
+</<div></div>
