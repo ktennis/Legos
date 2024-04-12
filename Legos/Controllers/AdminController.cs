@@ -94,7 +94,7 @@ namespace Legos.Controllers
 
                 //DateTime date = DateTime.ParseExact(record.Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                 var daysSinceJan12022 = Math.Abs((recordDate - january1_2022).Days);
-                float amount = float.Parse(record.Amount);
+                float amount = float.Parse(record.Amount.ToString());
 
                 var input = new List<float>
                         {
@@ -105,28 +105,28 @@ namespace Legos.Controllers
 
                             //dummy codes
 
-                            record.DayOfWeek == "Mon" ? 1 : 0,
-                            record.DayOfWeek == "Sat" ? 1 : 0,
-                            record.DayOfWeek == "Sun" ? 1 : 0,
-                            record.DayOfWeek == "Thu" ? 1 : 0,
-                            record.DayOfWeek == "Tue" ? 1 : 0,
-                            record.DayOfWeek == "Wed" ? 1 : 0,
+                            record.Dayofweek == "Mon" ? 1 : 0,
+                            record.Dayofweek == "Sat" ? 1 : 0,
+                            record.Dayofweek == "Sun" ? 1 : 0,
+                            record.Dayofweek == "Thu" ? 1 : 0,
+                            record.Dayofweek == "Tue" ? 1 : 0,
+                            record.Dayofweek == "Wed" ? 1 : 0,
 
-                            record.EntryMode == "Pin" ? 1 : 0,
-                            record.EntryMode == "Tap" ? 1 : 0,
+                            record.Entrymode == "Pin" ? 1 : 0,
+                            record.Entrymode == "Tap" ? 1 : 0,
 
-                            record.TypeOfTransaction == "Online" ? 1 : 0,
-                            record.TypeOfTransaction == "POS" ? 1 : 0,
+                            record.Typeoftransaction == "Online" ? 1 : 0,
+                            record.Typeoftransaction == "POS" ? 1 : 0,
 
-                            record.CountryOfTransaction == "India" ? 1 : 0,
-                            record.CountryOfTransaction == "Russia" ? 1 : 0,
-                            record.CountryOfTransaction == "USA" ? 1 : 0,
-                            record.CountryOfTransaction == "United Kingdom" ? 1 : 0,
+                            record.Countryoftransaction == "India" ? 1 : 0,
+                            record.Countryoftransaction == "Russia" ? 1 : 0,
+                            record.Countryoftransaction == "USA" ? 1 : 0,
+                            record.Countryoftransaction == "United Kingdom" ? 1 : 0,
 
-                            record.ShippingAddress == "India" ? 1 : 0,
-                            record.ShippingAddress == "Russia" ? 1 : 0,
-                            record.ShippingAddress == "USA" ? 1 : 0,
-                            record.ShippingAddress == "United Kingdom" ? 1 : 0,
+                            record.Shippingaddress == "India" ? 1 : 0,
+                            record.Shippingaddress == "Russia" ? 1 : 0,
+                            record.Shippingaddress == "USA" ? 1 : 0,
+                            record.Shippingaddress == "United Kingdom" ? 1 : 0,
 
                             record.Bank == "HSBC" ? 1 : 0,
                             record.Bank == "Halifax" ? 1 : 0,
@@ -135,7 +135,7 @@ namespace Legos.Controllers
                             record.Bank == "Monzo" ? 1 : 0,
                             record.Bank == "RBS" ? 1 : 0,
 
-                            record.TypeOfCard == "Visa" ? 1 : 0
+                            record.Typeofcard == "Visa" ? 1 : 0
                         };
                 var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
 
@@ -325,14 +325,14 @@ namespace Legos.Controllers
             {
                 Products = _repo.Products
                     .Skip((pageNum - 1) * pageSize)
-                    .Where(x => !(productTypes != null && !productTypes.Contains(x.PrimaryColor)) && (productCat == null || productCat.Contains(x.Category)))
+                    .Where(x => !(productTypes != null && !productTypes.Contains(x.Primarycolor)) && (productCat == null || productCat.Contains(x.Category)))
                     .Take(pageSize),
 
                 PaginationInfo = new PaginationInfo
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = pageSize,
-                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.PrimaryColor == productTypes && x.Category == productCat).Count()
+                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.Primarycolor == productTypes && x.Category == productCat).Count()
                 }
             
             };

@@ -5,7 +5,7 @@
 @model Customer
 
 <h2 class="text-center">Confirm Delete</h2>
-<h2 class="text-center">Are you sure you want to delete the product: @Model.FirstName?</h2>
+<h2 class="text-center">Are you sure you want to delete the product: @Model.Firstname?</h2>
 <div class="container">
     <form method="post">
         <button type="submit" asp-action="DeleteUse" asp-route-id="@Model.CustomerId">Yes, Delete</button>

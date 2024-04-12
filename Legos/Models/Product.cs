@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Legos.Models;
 
 public partial class Product
 {
-    public int ProductId { get; set; }
+    public int? ProductId { get; set; }
 
     public string? Name { get; set; }
 
     public int? Year { get; set; }
 
-    public int? NumParts { get; set; }
+    public int? Numparts { get; set; }
 
     public int? Price { get; set; }
 
-    public string? ImgLink { get; set; }
+    public string? Imglink { get; set; }
 
-    public string? PrimaryColor { get; set; }
+    public string? Primarycolor { get; set; }
 
-    public string? SecondaryColor { get; set; }
+    public string? Secondarycolor { get; set; }
 
     public string? Description { get; set; }
 

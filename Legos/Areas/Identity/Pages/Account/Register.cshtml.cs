@@ -165,7 +165,7 @@ namespace Legos.Areas.Identity.Pages.Account
 
                 string birthday = FormatDate(dob);
 
-                var customer = new Customer { Email = Input.Email, FirstName = Input.first_name, LastName = Input.last_name, BirthDate = birthday, CountryOfResidence = Input.country_of_residence, Age = age, Gender = Input.Gender};
+                var customer = new Customer { Email = Input.Email, Firstname = Input.first_name, Lastname = Input.last_name, Birthdate = birthday, Countryofresidence = Input.country_of_residence, Age = age, Gender = Input.Gender};
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);

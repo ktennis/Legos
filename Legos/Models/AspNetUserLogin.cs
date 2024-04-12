@@ -5,13 +5,11 @@ namespace Legos.Models;
 
 public partial class AspNetUserLogin
 {
-    public string LoginProvider { get; set; } = null!;
+    public string? LoginProvider { get; set; }
 
-    public string ProviderKey { get; set; } = null!;
+    public string? ProviderKey { get; set; }
 
     public string? ProviderDisplayName { get; set; }
 
-    public string UserId { get; set; } = null!;
-
-    public virtual AspNetUser User { get; set; } = null!;
+    public string? UserId { get; set; }
 }

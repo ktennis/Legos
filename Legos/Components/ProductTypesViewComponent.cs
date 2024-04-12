@@ -13,7 +13,7 @@ namespace Legos.Components
         {
             ViewBag.SelectedProductType = RouteData?.Values["productType"];
             var productTypes = _legoRepo.Products
-                 .Select(p => p.PrimaryColor)
+                 .Select(p => p.Primarycolor)
                 .Distinct();
             return View(productTypes);
 

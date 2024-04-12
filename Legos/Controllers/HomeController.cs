@@ -136,8 +136,8 @@ namespace Legos.Controllers
         //            var viewModel = new CheckoutFraud
         //            {
         //                // Populate other properties as needed
-        //                first_name = customer.FirstName,
-        //                last_name = customer.LastName,
+        //                first_name = customer.Firstname,
+        //                last_name = customer.Lastname,
         //                // Populate other properties as needed
         //            };
 
@@ -227,18 +227,22 @@ namespace Legos.Controllers
         //}
         public IActionResult Products(string productTypes, string productCat, int pageNum, int pageSize = 5)
         {
+            if (pageNum < 1)
+            {
+                pageNum = 1;
+            }
             var ProductData = new ProductListViewModel
             {
                 Products = _repo.Products
-                    .Skip((pageNum - 1) * pageSize)
-                    .Where(x => !(productTypes != null && !productTypes.Contains(x.PrimaryColor)) && (productCat == null || productCat.Contains(x.Category)))
-                    .Take(pageSize),
+                        .Skip((pageNum - 1) * pageSize)
+                        .Where(x => !(productTypes != null && !productTypes.Contains(x.Primarycolor)) && (productCat == null || productCat.Contains(x.Category)))
+                        .Take(pageSize),
 
                 PaginationInfo = new PaginationInfo
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = pageSize,
-                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.PrimaryColor == productTypes && x.Category == productCat).Count()
+                    TotalItems = productTypes == null && productCat == null ? _repo.Products.Count() : _repo.Products.Where(x => x.Primarycolor == productTypes && x.Category == productCat).Count()
                 }
             
             };

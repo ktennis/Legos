@@ -5,7 +5,7 @@ namespace Legos.Models;
 
 public partial class AspNetUser
 {
-    public string Id { get; set; } = null!;
+    public string? Id { get; set; }
 
     public string? UserName { get; set; }
 
@@ -15,7 +15,7 @@ public partial class AspNetUser
 
     public string? NormalizedEmail { get; set; }
 
-    public int EmailConfirmed { get; set; }
+    public int? EmailConfirmed { get; set; }
 
     public string? PasswordHash { get; set; }
 
@@ -25,23 +25,13 @@ public partial class AspNetUser
 
     public string? PhoneNumber { get; set; }
 
-    public int PhoneNumberConfirmed { get; set; }
+    public int? PhoneNumberConfirmed { get; set; }
 
-    public int TwoFactorEnabled { get; set; }
+    public int? TwoFactorEnabled { get; set; }
 
     public string? LockoutEnd { get; set; }
 
-    public int LockoutEnabled { get; set; }
+    public int? LockoutEnabled { get; set; }
 
-    public int AccessFailedCount { get; set; }
-
-    public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; } = new List<AspNetUserClaim>();
-
-    public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; } = new List<AspNetUserLogin>();
-
-    public virtual ICollection<AspNetUserToken> AspNetUserTokens { get; set; } = new List<AspNetUserToken>();
-
-    public virtual ICollection<AspNetRole> Roles { get; set; } = new List<AspNetRole>();
-
-
+    public int? AccessFailedCount { get; set; }
 }

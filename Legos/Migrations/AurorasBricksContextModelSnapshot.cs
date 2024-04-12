@@ -222,11 +222,11 @@ namespace Legos.Migrations
                         .HasColumnType("int")
                         .HasColumnName("age");
 
-                    b.Property<string>("BirthDate")
+                    b.Property<string>("Birthdate")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("birth_date");
 
-                    b.Property<string>("CountryOfResidence")
+                    b.Property<string>("Countryofresidence")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("country_of_residence");
 
@@ -234,7 +234,7 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("email");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Firstname")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("first_name");
 
@@ -242,7 +242,7 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("gender");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Lastname")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("last_name");
 
@@ -291,7 +291,7 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("bank");
 
-                    b.Property<string>("CountryOfTransaction")
+                    b.Property<string>("Countryoftransaction")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("country_of_transaction");
 
@@ -303,11 +303,11 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("date");
 
-                    b.Property<string>("DayOfWeek")
+                    b.Property<string>("Dayofweek")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("day_of_week");
 
-                    b.Property<string>("EntryMode")
+                    b.Property<string>("Entrymode")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("entry_mode");
 
@@ -315,7 +315,7 @@ namespace Legos.Migrations
                         .HasColumnType("int")
                         .HasColumnName("fraud");
 
-                    b.Property<string>("ShippingAddress")
+                    b.Property<string>("Shippingaddress")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("shipping_address");
 
@@ -323,11 +323,11 @@ namespace Legos.Migrations
                         .HasColumnType("int")
                         .HasColumnName("time");
 
-                    b.Property<string>("TypeOfCard")
+                    b.Property<string>("Typeofcard")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("type_of_card");
 
-                    b.Property<string>("TypeOfTransaction")
+                    b.Property<string>("Typeoftransaction")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("type_of_transaction");
 
@@ -356,7 +356,7 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("description");
 
-                    b.Property<string>("ImgLink")
+                    b.Property<string>("Imglink")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("img_link");
 
@@ -364,7 +364,7 @@ namespace Legos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("name");
 
-                    b.Property<int?>("NumParts")
+                    b.Property<int?>("Numparts")
                         .HasColumnType("int")
                         .HasColumnName("num_parts");
 
@@ -396,7 +396,7 @@ namespace Legos.Migrations
                         .HasColumnType("int")
                         .HasColumnName("rec_5");
 
-                    b.Property<string>("SecondaryColor")
+                    b.Property<string>("Secondarycolor")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("secondary_color");
 

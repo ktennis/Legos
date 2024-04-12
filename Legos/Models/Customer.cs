@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Legos.Models;
 
 public partial class Customer
 {
-    public int CustomerId { get; set; }
+    public int? CustomerId { get; set; }
 
-    public string? FirstName { get; set; }
+    public string? Firstname { get; set; }
 
-    public string? LastName { get; set; }
+    public string? Lastname { get; set; }
 
-    public string? BirthDate { get; set; }
+    public string? Birthdate { get; set; }
 
-    public string? CountryOfResidence { get; set; }
+    public string? Countryofresidence { get; set; }
 
     public string? Gender { get; set; }
 

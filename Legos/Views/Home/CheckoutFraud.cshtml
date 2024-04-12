@@ -13,7 +13,7 @@
 <h2 class="text-center mt-2 mb-4">Checkout Form</h2>
 <form asp-action="SubmitCheckout" asp-controller="Home" method="post">
     <div class="col">
-        <h5 m-2>Name: @customer?.FirstName @customer?.LastName</h5>
+        <h5 m-2>Name: @customer?.Firstname @customer?.Lastname</h5>
         <h6 m-2>Total: @Model.Cart?.CalculateTotal().ToString("c")</h6>
     </div>
     <div class="card">
